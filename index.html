@@ -126,9 +126,9 @@
         <!-- Dynamic Live KPI Summary Banner (Updates instantly on edit) -->
         <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 card-glow transition">
-                <p class="text-[11px] font-semibold text-slate-400">التارجت الشهري الإجمالي</p>
+                <p class="text-[11px] font-semibold text-slate-400">تارجت الكوارتر الإجمالي (كل 3 شهور)</p>
                 <h3 id="kpi-total-monthly" class="text-xl sm:text-2xl font-black text-white mt-1">3,700,000 ج.م</h3>
-                <p class="text-[10px] text-emerald-400 font-bold mt-1">2.2M أساس + 1.5M توسع</p>
+                <p class="text-[10px] text-emerald-400 font-bold mt-1">2.2M أساس + 1.5M توسع (كوارتر)</p>
             </div>
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 card-glow transition">
                 <p class="text-[11px] font-semibold text-slate-400">كبار الموزعين والجملة (ASM)</p>
@@ -138,12 +138,12 @@
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 card-glow transition">
                 <p class="text-[11px] font-semibold text-slate-400">تارجت المندوبين (كل فرد)</p>
                 <h3 id="kpi-rep-target" class="text-xl sm:text-2xl font-black text-sky-400 mt-1">600,000 ج.م</h3>
-                <p class="text-[10px] text-slate-400 mt-1">Zone 1 & Zone 2 (تدرج معقول)</p>
+                <p class="text-[10px] text-slate-400 mt-1">في الكوارتر (200K شهرياً لكل مندوب)</p>
             </div>
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 card-glow transition">
                 <p class="text-[11px] font-semibold text-slate-400">المستهدف السنوي 2027</p>
-                <h3 id="kpi-annual-target" class="text-xl sm:text-2xl font-black text-purple-400 mt-1">36,800,000 ج.م</h3>
-                <p class="text-[10px] text-purple-400 font-bold mt-1">نمو مدروس بنسبة +28%</p>
+                <h3 id="kpi-annual-target" class="text-xl sm:text-2xl font-black text-purple-400 mt-1">14,800,000 ج.م</h3>
+                <p class="text-[10px] text-purple-400 font-bold mt-1">4 كوارترات (14.8M سنوياً)</p>
             </div>
         </section>
 
@@ -217,7 +217,7 @@
                         <p class="text-xs text-slate-400">مواسم الذروة: موسم الجامعات في Q3 وعروض نهاية العام في Q4</p>
                     </div>
                     <span id="badge-annual" class="text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30 px-3 py-1 rounded-full font-bold">
-                        36,800,000 ج.م سنوياً
+                        14,800,000 ج.م سنوياً
                     </span>
                 </div>
                 <div class="relative h-64">
@@ -999,7 +999,7 @@
             asm: 2500000,
             rep1: 600000,
             rep2: 600000,
-            annual: 36800000
+            annual: 14800000
         };
 
         let appConfig = JSON.parse(localStorage.getItem('2b_master_config')) || DEFAULT_CONFIG;
@@ -1051,8 +1051,8 @@
                 title: "المؤشرات الرقمية الكبرى لاستراتيجية الجيزة 2027 (معايرة واقعية)",
                 type: "grid",
                 items: [
-                    { title: "3,700,000 ج.م", color: "orange", desc: "المستهدف الشهري الإجمالي (2.2M أساس + 1.5M توسع)." },
-                    { title: "36,800,000 ج.م", color: "green", desc: "المستهدف السنوي الواقعي لعام 2027 بنمو +28%." },
+                    { title: "3,700,000 ج.م", color: "orange", desc: "المستهدف الإجمالي للكوارتر (كل 3 شهور) (2.2M أساس + 1.5M توسع)." },
+                    { title: "14,800,000 ج.م", color: "green", desc: "المستهدف السنوي الواقعي لعام 2027 بنمو +28%." },
                     { title: "1,850,000 ج.م", color: "blue", desc: "مبيعات الكاش الفوري شهرياً (50%+) و DSO &le; 20 يوماً." },
                     { title: "350K - 600K", color: "orange", desc: "تدرج المندوب الجديد في خطة الـ 90 يوماً لمنع الإحباط." }
                 ]
@@ -1086,7 +1086,7 @@
                 ]
             },
             {
-                title: "استراتيجية عام 2027 السنوية الواقعية (36.8M ج.م)",
+                title: "استراتيجية عام 2027 السنوية الواقعية (14.8M ج.م)",
                 type: "grid",
                 items: [
                     { title: "Q1: هادئ وتأسيس", color: "blue", desc: "7.5M (2.5M/شهر) — تجديد مخزون التجار بعد الجرد وإجازة نصف العام." },
@@ -1360,7 +1360,7 @@
                 body.innerHTML = `
                     <div class="space-y-4 py-8">
                         <h3 class="text-2xl sm:text-3xl font-black text-orange-400">${slide.subtitle}</h3>
-                        <p class="text-sm text-sky-400 font-bold">من 2.2M إلى 3.7M شهرياً (36.8 مليون ج.م سنوياً لعام 2027)</p>
+                        <p class="text-sm text-sky-400 font-bold">تارجت 3.7M لكل كوارتر (كل 3 شهور) (36.8 مليون ج.م سنوياً لعام 2027)</p>
                         <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-300 max-w-xl">
                             <strong>إعداد:</strong> عبدالله أحمد إبراهيم — مدير المنطقة البيعية (Area Sales Manager)<br>
                             وثيقة تشغيلية معتمدة وموجهة لقيادة فريق مبيعات الجيزة الكبرى.
@@ -1796,16 +1796,17 @@
 الموضوع: التقرير الاستراتيجي الشامل ومستهدفات قطاع الجيزة الكبرى لعام 2027
 إعداد: عبدالله أحمد إبراهيم — مدير المنطقة البيعية (Area Sales Manager) - قطاع الجيزة
 -------------------------------------------------------------------------
-1. المؤشرات المالية المعتمدة:
-• المستهدف الشهري الإجمالي: ${total.toLocaleString()} ج.م (${totalM}M شهرياً).
-• الأساس التاريخي المستقر: ${appConfig.base.toLocaleString()} ج.م | التوسع التراكمي: ${appConfig.expansion.toLocaleString()} ج.م.
-• المستهدف السنوي المخطط لعام 2027: ${appConfig.annual.toLocaleString()} ج.م (${annualM}M سنوياً بنمو +28%).
+1. المؤشرات المالية المعتمدة (نظام التقييم الربع سنوي - الكوارتر):
+• المستهدف الإجمالي للكوارتر (كل 3 شهور): ${total.toLocaleString()} ج.م (${totalM}M لكل كوارتر).
+• المعادل الشهري الاسترشادي للأريا: ${Math.round(total / 3).toLocaleString()} ج.م شهرياً (~1.23M ج.م).
+• الأساس التاريخي للكوارتر: ${appConfig.base.toLocaleString()} ج.م | التوسع التراكمي للكوارتر: ${appConfig.expansion.toLocaleString()} ج.م.
+• المستهدف السنوي المعتمد لعام 2027 (4 كوارترات): ${appConfig.annual.toLocaleString()} ج.م (${annualM}M سنوياً).
 • معادلة السيولة والكاش: إلزامية تحصيل كاش فوري بنسبة لا تقل عن 50% شهرياً ومعدل تحصيل DSO ≤ 20 يوماً.
 
-2. الهيكلة التشغيلية وتوزيع الحصص:
-• كبار موزعي الجملة والصفقات B2B (بإشراف ASM): ${appConfig.asm.toLocaleString()} ج.م (${((appConfig.asm/total)*100).toFixed(1)}%).
-• مندوب 1 (Zone 1 - شمال الجيزة: المهندسين والدقي ومول التحرير وإمبابة): ${appConfig.rep1.toLocaleString()} ج.م.
-• مندوب 2 (Zone 2 - جنوب الجيزة: فيصل والهرم و 6 أكتوبر وزايد): ${appConfig.rep2.toLocaleString()} ج.م.
+2. الهيكلة التشغيلية وتوزيع حصص الكوارتر (كل 3 شهور):
+• كبار موزعي الجملة والصفقات B2B (بإشراف ASM): ${appConfig.asm.toLocaleString()} ج.م في الكوارتر (~833,000 ج.م شهرياً) بنسبة ${((appConfig.asm/total)*100).toFixed(1)}%.
+• مندوب 1 (Zone 1 - شمال الجيزة: المهندسين والدقي ومول التحرير وإمبابة): ${appConfig.rep1.toLocaleString()} ج.م في الكوارتر (200,000 ج.م شهرياً).
+• مندوب 2 (Zone 2 - جنوب الجيزة: فيصل والهرم و 6 أكتوبر وزايد): ${appConfig.rep2.toLocaleString()} ج.م في الكوارتر (200,000 ج.م شهرياً).
 
 3. خطة الـ 90 يوماً المتدرجة (The 30-60-90 Day Ramp-Up):
 • الشهر الأول: 2,700,000 ج.م (تأسيس ومسح خطوط السير وتأهيل المندوبين وتوريد كاش).
