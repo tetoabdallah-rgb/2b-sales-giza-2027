@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاستراتيجية التجارية الميدانية الشاملة 2027 - قطاع الجيزة (شركة 2B)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Font Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #0b1120; color: #f1f5f9; line-height: 1.8; }
+        .card-glow:hover { box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.2), 0 8px 10px -6px rgba(234, 88, 12, 0.1); }
+        @media print {
+            body { background: white; color: black; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-5xl mx-auto space-y-10">
+
+        <!-- Top Header & Print Bar -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-800 pb-6 gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center font-black text-3xl text-white shadow-xl shadow-orange-600/30">
+                    2B
+                </div>
+                <div>
+                    <span class="text-xs bg-orange-500/20 text-orange-400 border border-orange-500/30 px-3 py-0.5 rounded-full font-bold">وثيقة تشغيلية ومعايرة واقعية معتمدة</span>
+                    <h1 class="text-2xl md:text-3xl font-black text-white mt-1">الاستراتيجية التجارية الميدانية الشاملة: أريا الجيزة 2027</h1>
+                    <p class="text-xs text-slate-400">قطاع إكسسوارات الموبايل واللابتوب | إعداد: مدير المنطقة البيعية (Area Sales Manager)</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 no-print">
+                <button onclick="window.print()" class="px-5 py-2.5 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-sm font-bold shadow-lg shadow-orange-600/30 transition flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    طباعة / تصدير PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- Executive Summary Banner -->
+        <div class="bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-950 border border-slate-800 rounded-3xl p-8 relative overflow-hidden shadow-2xl">
+            <div class="absolute top-0 right-0 w-2 h-full bg-orange-500"></div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-slate-800">
+                <div class="p-2">
+                    <p class="text-xs font-semibold text-slate-400">التارجت الأساسي للأريا</p>
+                    <p class="text-3xl font-black text-white mt-1">2.2M <span class="text-sm font-normal text-slate-400">ج.م</span></p>
+                    <p class="text-[11px] text-slate-400 mt-1">الأساس التاريخي المستقر</p>
+                </div>
+                <div class="p-2">
+                    <p class="text-xs font-semibold text-slate-400">الزيادة التوسعية</p>
+                    <p class="text-3xl font-black text-orange-400 mt-1">+1.5M <span class="text-sm font-normal text-slate-400">ج.م</span></p>
+                    <p class="text-[11px] text-emerald-400 font-bold mt-1">توسع جملة وتجزئة وباقات</p>
+                </div>
+                <div class="p-2">
+                    <p class="text-xs font-semibold text-slate-400">المستهدف الشهري الإجمالي</p>
+                    <p class="text-3xl font-black text-sky-400 mt-1">3.7M <span class="text-sm font-normal text-slate-400">ج.م</span></p>
+                    <p class="text-[11px] text-sky-400 font-bold mt-1">50% كاش فوري إلزامي</p>
+                </div>
+                <div class="p-2">
+                    <p class="text-xs font-semibold text-slate-400">المستهدف السنوي 2027</p>
+                    <p class="text-3xl font-black text-purple-400 mt-1">36.8M <span class="text-sm font-normal text-slate-400">ج.م</span></p>
+                    <p class="text-[11px] text-purple-400 font-bold mt-1">نمو مدروس بنسبة +28%</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visual Charts Section (Chart.js) -->
+        <section class="space-y-6">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2 border-r-4 border-orange-500 pr-3">
+                📊 الرسومات البيانية التنفيذية (معايرة واقعية ومعقولة)
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- CHART 1: Team Quota Split -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 card-glow transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-base font-bold text-white">توزيع المستهدف الشهري (3.7M ج.م) بين القنوات</h3>
+                            <span class="text-xs bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded font-bold">توزيع واقعي</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-4">كبار الموزعين والجملة يشكلون الكتلة الأكبر (67.5%) مع حماية المندوبين الجدد</p>
+                        
+                        <div class="relative h-60 flex items-center justify-center">
+                            <canvas id="quotaChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-800 text-center text-xs">
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-orange-500 mr-1"></span>
+                            <span class="text-slate-400 block text-[11px]">كبار الموزعين والجملة</span>
+                            <strong class="text-white">2.5M (67.5%)</strong>
+                        </div>
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-sky-500 mr-1"></span>
+                            <span class="text-slate-400 block text-[11px]">مندوب 1 (Zone 1)</span>
+                            <strong class="text-white">600K (16.2%)</strong>
+                        </div>
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 mr-1"></span>
+                            <span class="text-slate-400 block text-[11px]">مندوب 2 (Zone 2)</span>
+                            <strong class="text-white">600K (16.2%)</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHART 2: 3-Month Ramp-up Progression -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 card-glow transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-base font-bold text-white">خطة الـ 90 يوماً للمندوبين الجدد والأريا</h3>
+                            <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">تدرج تشغيلي منطقي</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-4">التدرج من 350K للمندوب في الشهر الأول وصولاً إلى 600K في الشهر الثالث</p>
+
+                        <div class="relative h-60 flex items-center justify-center">
+                            <canvas id="rampUpChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-800 text-center text-xs">
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">الشهر الأول</span>
+                            <strong class="text-orange-400">2.7M إجمالي (350K/مندوب)</strong>
+                        </div>
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">الشهر الثاني</span>
+                            <strong class="text-sky-400">3.2M إجمالي (450K/مندوب)</strong>
+                        </div>
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">الشهر الثالث</span>
+                            <strong class="text-emerald-400">3.7M إجمالي (600K/مندوب)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHART 3: 2027 Seasonality Bar Chart -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 card-glow transition">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                    <div>
+                        <h3 class="text-base font-bold text-white">المستهدف السنوي الواقعي لعام 2027 (36.8M ج.م)</h3>
+                        <p class="text-xs text-slate-400">توزيع مواسم الذروة: موسم الجامعات في Q3 وعروض نهاية العام في Q4</p>
+                    </div>
+                    <span class="text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30 px-3 py-1 rounded-full font-bold">
+                        السنوي الواقعي: 36.8 مليون ج.م
+                    </span>
+                </div>
+                <div class="relative h-64">
+                    <canvas id="seasonalityChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE 7 PROFESSIONAL FIELD TOOLS SECTION -->
+        <section class="space-y-6">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2 border-r-4 border-emerald-500 pr-3">
+                ⚡ الأسلحة الميدانية الاحترافية للسيطرة على سوق الجيزة
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Tool 1: RMA Fast-Track -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-3 card-glow transition border-emerald-500/30">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-base font-bold text-emerald-400 flex items-center gap-2">
+                            <span>🔄</span> 1. بروتوكول الاستبدال الفوري للتالف (RMA Fast-Track)
+                        </h3>
+                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold">استبدال بلحظتها</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        تسليح كل مندوب بـ <strong>شنطة استبدال عائمة (Swap Stock)</strong> بقيمة 2,500 ج.م تشمل شواحن وكابلات سريعة. أي قطعة معيبة عيب صناعة سليم يتم استبدالها للتاجر <strong>فوراً في نفس الزيارة</strong> دون أدنى تأخير.
+                    </p>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-[11px] text-slate-400">
+                        <strong>الأثر التجاري:</strong> يزيل أكبر اعتراض يواجهه المندوب ويبني ثقة مطلقة تجعل التاجر يطرد بضاعة المنافسين.
+                    </div>
+                </div>
+
+                <!-- Tool 2: Retail Loyalty Club -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-3 card-glow transition border-orange-500/30">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-base font-bold text-orange-400 flex items-center gap-2">
+                            <span>🏆</span> 2. برنامج ولاء تاجر التجزئة (2B Loyalty Club)
+                        </h3>
+                        <span class="text-xs bg-orange-500/20 text-orange-300 px-2 py-0.5 rounded font-bold">بونص ربع سنوي</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        تحفيز التاجر وبائع المحل على التوصية بمنتجات 2B عبر شرائح سحب واضحة:
+                    </p>
+                    <div class="grid grid-cols-3 gap-2 text-center text-[10px]">
+                        <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400 block font-bold">الفضية (&ge;10K)</span>
+                            <strong class="text-orange-400">300 ج.م بضاعة بونص</strong>
+                        </div>
+                        <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400 block font-bold">الذهبية (&ge;20K)</span>
+                            <strong class="text-orange-400">800 ج.م بضاعة + هدايا</strong>
+                        </div>
+                        <div class="bg-slate-950 p-2 rounded-lg border border-slate-800">
+                            <span class="text-slate-400 block font-bold">البلاتينية (&ge;35K)</span>
+                            <strong class="text-orange-400">1,500 ج.م + يافطة مضيئة</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 3: Sales Rep Gamified Incentive -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-3 card-glow transition border-sky-500/30">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-base font-bold text-sky-400 flex items-center gap-2">
+                            <span>🎯</span> 3. هيكل عمولات وحوافز المندوبين الجدد
+                        </h3>
+                        <span class="text-xs bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded font-bold">مكافآت فورية</span>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                        <li><strong>مكافأة فتح المحل الجديد (Bounty):</strong> 50 إلى 100 ج.م نقداً فورية عن كل محل جديد كاش &ge; 3,000 ج.م.</li>
+                        <li><strong>حافز التفوق في الكاش (Cash Kicker):</strong> عمولة إضافية 0.5% على أي مبيعات كاش تتجاوز 50%.</li>
+                        <li><strong>سلم التارجت الشهري:</strong> 100% تحقق بونص كامل، و 110%+ تحقق لقب نجم الشهر وبونص إضافي.</li>
+                    </ul>
+                </div>
+
+                <!-- Tool 4: Golden Checkout Counter -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-3 card-glow transition border-amber-500/30">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-base font-bold text-amber-400 flex items-center gap-2">
+                            <span>🛒</span> 4. استراتيجية كاونتر الدفع الذهبي
+                        </h3>
+                        <span class="text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-bold">شراء لحظي</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        استغلال عادة <strong>الشراء اللحظي (Impulse Buying)</strong> بتركيب وحدات عرض أكريليك مضيئة ومدمجة تحمل 6 كابلات و3 شواحن سريعة <strong>بجانب درج الكاشير مباشرة</strong>، مقابل إقرار حصرية العرض لـ 2B لمدة 6 أشهر.
+                    </p>
+                </div>
+
+                <!-- Tool 5: Competitor Hunt -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-3 card-glow transition border-red-500/30">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-base font-bold text-rose-400 flex items-center gap-2">
+                            <span>⚔️</span> 5. خطة استبدال المنافسين (Trade-in Campaign)
+                        </h3>
+                        <span class="text-xs bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded font-bold">اقتناص الرفوف</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        استهداف المحلات التي تعرض علامات منافسة (Joyroom, Oraimo, LDNIO) وتقديم عرض استبدال جذاب: خصم كاش إضافي <strong>3%</strong> على أول طلبية استبدال، مع ضمان استبدال فوري ودعم إعلاني لصفحة المحل.
+                    </p>
+                </div>
+
+                <!-- Tool 6: Daily Sales Rhythm -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-3 card-glow transition border-purple-500/30">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-base font-bold text-purple-400 flex items-center gap-2">
+                            <span>⏰</span> 6. طقوس الإدارة والتشغيل اليومي
+                        </h3>
+                        <span class="text-xs bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-bold">انضباط صارم</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        <strong>لقاء الصباح السريع (09:30 ص):</strong> مكالمة 10 دقائق لتدقيق خط سير اليوم وحل الاعتراضات.<br>
+                        <strong>تقفيل اليوم (06:00 م):</strong> إرسال شيت التقرير اليومي وتوريد النقدية بالبنك/الخزينة لمنع مخاطر حمل الكاش.
+                    </p>
+                </div>
+
+                <!-- Tool 7: Campus B2B Playbook -->
+                <div class="md:col-span-2 bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-3 card-glow transition border-indigo-500/30">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-base font-bold text-indigo-400 flex items-center gap-2">
+                            <span>🎓</span> 7. كتيب صفقات الجامعات ومعارض اللابتوب بالجيزة (Campus B2B Playbook)
+                        </h3>
+                        <span class="text-xs bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded font-bold">أكبر كتلة جامعية في مصر</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-300 pt-1">
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                            <strong class="text-white block mb-1">حزم الطلاب الذكية:</strong>
+                            شنطة 2B مقاومة للمطر + ماوس وايرلس + موزع Type-C Hub كحزمة مجمعة لطلبة الهندسة والحاسبات.
+                        </div>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                            <strong class="text-white block mb-1">المنافذ المستهدفة:</strong>
+                            مكتبات ومعارض بين السرايات والدقي (جامعة القاهرة)، وميدان الحصري ومحيط جامعة 6 أكتوبر و MUST.
+                        </div>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                            <strong class="text-white block mb-1">عقود الاتحادات الطلابية:</strong>
+                            توريد شنط وهدايا مؤتمرات ومسابقات الكليات رسمياً لترسيخ علامة 2B لدى جيل الشباب.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Territory Census & Street Plan -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-3">
+                <div class="flex items-center gap-2 border-r-4 border-sky-500 pr-3">
+                    <h3 class="text-base font-bold text-white">Zone 1: شمال ووسط الجيزة (المندوب الأول)</h3>
+                </div>
+                <p class="text-xs text-slate-400">تغطية معارض الكمبيوتر واللابتوب بالدقي ومحلات التجزئة السريعة بإمبابة</p>
+                <ul class="text-xs space-y-2 text-slate-300 pt-2">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> <strong>المهندسين:</strong> شارع جامعة الدول، سوريا، لبنان، وأحمد عرابي.</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> <strong>الدقي:</strong> شارع التحرير، شارع مصدق، ومول التحرير للكمبيوتر.</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> <strong>إمبابة وبشتيل:</strong> شارع الوحدة، طلعت حرب، وترعة السواحل.</li>
+                </ul>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-3">
+                <div class="flex items-center gap-2 border-r-4 border-emerald-500 pr-3">
+                    <h3 class="text-base font-bold text-white">Zone 2: جنوب وغرب الجيزة (المندوب الثاني)</h3>
+                </div>
+                <p class="text-xs text-slate-400">أعلى كثافة موبايل لسحب الشواحن والباوربنك ومحلات المولات الكبرى</p>
+                <ul class="text-xs space-y-2 text-slate-300 pt-2">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> <strong>شارع فيصل:</strong> العشرين، حسن محمد، المطبعة، العريش، والتعاون.</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> <strong>شارع الهرم:</strong> نصر الدين، مدكور، كايرو مول، ومحطة العريش.</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> <strong>6 أكتوبر وزايد:</strong> ميدان الحصري، المحور المركزي، ومحيط مول العرب.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Credit Governance Rules -->
+        <section class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4">
+            <h2 class="text-lg font-bold text-white flex items-center gap-2 border-r-4 border-amber-500 pr-3">
+                🛡️ حوكمة الائتمان والتحصيل وقاعدة الإيقاف التلقائي
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                    <h4 class="font-bold text-amber-400 mb-1">1. الكاش أولاً للجديد</h4>
+                    <p class="text-slate-400 leading-relaxed">أي عميل تجزئة جديد يشتري كاش فوري 100% لأول فاتورتين لإثبات الجدية وتفعيل كود العميل.</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                    <h4 class="font-bold text-sky-400 mb-1">2. سقف الآجل المنضبط</h4>
+                    <p class="text-slate-400 leading-relaxed">سقف ائتماني لمحل التجزئة بين 10,000 إلى 15,000 ج.م بمهلة سداد 10-14 يوماً بنظام (فاتورة تسد فاتورة).</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                    <h4 class="font-bold text-red-400 mb-1">3. قاعدة Stop-Supply</h4>
+                    <p class="text-slate-400 leading-relaxed">تجميد فوري لتوريدات أي عميل يتأخر أكثر من 7 أيام عن موعد السداد لحماية سيولة وأرباح الشركة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
+            الاستراتيجية التجارية الميدانية الشاملة لقطاع الجيزة — شركة توبي للتجارة والتوزيع (2B) © 2026/2027
+        </footer>
+
+    </div>
+
+    <!-- Chart.js Logic -->
+    <script>
+        // Chart 1: Team Quota Split (Doughnut)
+        const ctxQuota = document.getElementById('quotaChart').getContext('2d');
+        new Chart(ctxQuota, {
+            type: 'doughnut',
+            data: {
+                labels: ['كبار الموزعين والجملة (ASM)', 'مندوب 1 (Zone 1)', 'مندوب 2 (Zone 2)'],
+                datasets: [{
+                    data: [2500000, 600000, 600000],
+                    backgroundColor: ['#ea580c', '#0284c7', '#059669'],
+                    borderColor: '#0b1120',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: 'Cairo', size: 11 } } },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.raw.toLocaleString() + ' ج.م';
+                            }
+                        }
+                    }
+                },
+                cutout: '65%'
+            }
+        });
+
+        // Chart 2: 3-Month Ramp-up Progression (Bar)
+        const ctxRamp = document.getElementById('rampUpChart').getContext('2d');
+        new Chart(ctxRamp, {
+            type: 'bar',
+            data: {
+                labels: ['الشهر 1 (التأسيس)', 'الشهر 2 (التوسع)', 'الشهر 3 (الاستقرار)'],
+                datasets: [
+                    {
+                        label: 'كبار الموزعين والجملة',
+                        data: [2000000, 2300000, 2500000],
+                        backgroundColor: '#ea580c',
+                        borderRadius: 6
+                    },
+                    {
+                        label: 'مندوب 1 (Zone 1)',
+                        data: [350000, 450000, 600000],
+                        backgroundColor: '#0284c7',
+                        borderRadius: 6
+                    },
+                    {
+                        label: 'مندوب 2 (Zone 2)',
+                        data: [350000, 450000, 600000],
+                        backgroundColor: '#059669',
+                        borderRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { stacked: true, ticks: { color: '#94a3b8', font: { family: 'Cairo' } }, grid: { display: false } },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            color: '#94a3b8',
+                            font: { family: 'Cairo' },
+                            callback: function(v) { return (v/1000000) + 'M'; }
+                        },
+                        grid: { color: '#1e293b' }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: 'Cairo', size: 10 } } }
+                }
+            }
+        });
+
+        // Chart 3: Seasonality 2027 (Realistic: 36.8M)
+        const ctxSeason = document.getElementById('seasonalityChart').getContext('2d');
+        new Chart(ctxSeason, {
+            type: 'bar',
+            data: {
+                labels: ['الربع الأول (Q1: هادئ وتأسيس)', 'الربع الثاني (Q2: الأعياد والصيف)', 'الربع الثالث (Q3: موسم الجامعات الأكبر)', 'الربع الرابع (Q4: عروض نهاية العام)'],
+                datasets: [{
+                    label: 'المستهدف الفصلي (ج.م)',
+                    data: [7500000, 9000000, 11000000, 9300000],
+                    backgroundColor: ['#64748b', '#0284c7', '#ea580c', '#8b5cf6'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { ticks: { color: '#94a3b8', font: { family: 'Cairo', size: 11 } }, grid: { display: false } },
+                    y: {
+                        ticks: {
+                            color: '#94a3b8',
+                            font: { family: 'Cairo' },
+                            callback: function(v) { return (v/1000000) + 'M'; }
+                        },
+                        grid: { color: '#1e293b' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(c) { return 'المستهدف: ' + c.raw.toLocaleString() + ' ج.م'; }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
