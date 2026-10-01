@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2B Master Sales OS 2027 | المنظومة الشاملة المدمجة لمبيعات الجيزة</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Font Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- PWA Metadata & Mobile App Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ea580c">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="2B Sales OS">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #020617; color: #f8fafc; }
+        .card-glow:hover { box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.25), 0 8px 10px -6px rgba(234, 88, 12, 0.15); }
+        .active-tab { border-bottom: 3px solid #ea580c; color: #ea580c; font-weight: 700; }
+        .task-done { text-decoration: line-through; opacity: 0.6; }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .print-clean { background: white !important; color: black !important; border: 1px solid #ccc !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Top Sticky Header -->
+    <header class="border-b border-slate-800 bg-slate-900/95 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Logo & Title -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center font-black text-2xl text-white shadow-lg shadow-orange-600/30">
+                    2B
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-base sm:text-lg md:text-xl font-bold tracking-tight text-white">منظومة مبيعات الجيزة 2027 الكبرى</h1>
+                        <span class="text-[10px] bg-orange-500/20 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded-full font-bold">All-in-One Enterprise OS</span>
+                    </div>
+                    <p class="text-xs text-slate-400 hidden sm:block">إدارة مبيعات قطاع الجيزة الكبرى | دمج كامل: الاستراتيجية + الرادار + CRM + المهام + الباقات + التقارير</p>
+                </div>
+            </div>
+
+            <!-- Quick Action Buttons -->
+            <div class="flex items-center gap-2 no-print">
+                <!-- Offline Ready Status Badge -->
+                <div id="net-badge" class="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>أوفلاين جاهز</span>
+                </div>
+
+                <!-- APK Download Button -->
+                <a href="2B_Sales_Giza_2027.apk" download="2B_Sales_Giza_2027.apk" class="px-3 py-2 bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 rounded-xl text-xs font-bold border border-emerald-700/60 flex items-center gap-1.5 transition shadow-sm" title="تحميل ملف APK لتثبيته مباشرة على أي هاتف أندرويد">
+                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    <span class="hidden sm:inline">تحميل APK</span> 🤖
+                </a>
+
+                <!-- PWA Install Button -->
+                <button id="btn-pwa-install" onclick="triggerPWAInstall()" class="px-3 py-2 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-orange-600/30 flex items-center gap-1.5 transition">
+                    <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <span>تثبيت الأبلكيشن 📱</span>
+                </button>
+
+                <button onclick="openConfigModal()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-orange-400 rounded-xl text-xs font-bold border border-slate-700 flex items-center gap-1.5 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    <span>تعديل الأرقام</span>
+                </button>
+                <button onclick="openBoardReportModal()" class="px-3 py-2 bg-purple-900/60 hover:bg-purple-800 text-purple-300 rounded-xl text-xs font-bold border border-purple-700/50 flex items-center gap-1.5 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span class="hidden md:inline">تقرير الإدارة العليا</span>
+                </button>
+                <button onclick="window.print()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold border border-slate-700 flex items-center gap-1.5 transition">
+                    <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    <span class="hidden md:inline">طباعة / PDF</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs Bar (Scrollable on Mobile) -->
+        <div class="bg-slate-950 border-t border-slate-800/80 no-print">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-reverse space-x-6 text-xs sm:text-sm overflow-x-auto py-2">
+                <button onclick="switchTab('tab-dashboard')" id="btn-tab-dashboard" class="py-2 active-tab transition flex items-center gap-1.5 whitespace-nowrap">
+                    📊 لوحة المؤشرات
+                </button>
+                <button onclick="switchTab('tab-strategy')" id="btn-tab-strategy" class="py-2 text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    📑 الاستراتيجية الميدانية
+                </button>
+                <button onclick="switchTab('tab-slides')" id="btn-tab-slides" class="py-2 text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    🖥️ العرض التقديمي (12 شريحة)
+                </button>
+                <button onclick="switchTab('tab-tasks')" id="btn-tab-tasks" class="py-2 text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    ✅ مهام المندوبين
+                </button>
+                <button onclick="switchTab('tab-debts')" id="btn-tab-debts" class="py-2 text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    🛡️ رادار التحصيل و Stop-Supply
+                </button>
+                <button onclick="switchTab('tab-crm')" id="btn-tab-crm" class="py-2 text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    👥 دليل عملاء الجيزة (CRM)
+                </button>
+                <button onclick="switchTab('tab-basket')" id="btn-tab-basket" class="py-2 text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    🛒 صانع الباقات وأمر المخزن
+                </button>
+                <button onclick="switchTab('tab-weapons')" id="btn-tab-weapons" class="py-2 text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    ⚡ الأسلحة الميدانية الـ 7
+                </button>
+                <button onclick="switchTab('tab-calculator')" id="btn-tab-calculator" class="py-2 text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    🧮 حاسبة الحوافز وواتساب
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-28 md:pb-8 space-y-8 flex-1 w-full">
+
+        <!-- Dynamic Live KPI Summary Banner (Updates instantly on edit) -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 card-glow transition">
+                <p class="text-[11px] font-semibold text-slate-400">التارجت الشهري الإجمالي</p>
+                <h3 id="kpi-total-monthly" class="text-xl sm:text-2xl font-black text-white mt-1">3,700,000 ج.م</h3>
+                <p class="text-[10px] text-emerald-400 font-bold mt-1">2.2M أساس + 1.5M توسع</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 card-glow transition">
+                <p class="text-[11px] font-semibold text-slate-400">كبار الموزعين والجملة (ASM)</p>
+                <h3 id="kpi-asm-share" class="text-xl sm:text-2xl font-black text-orange-400 mt-1">2,500,000 ج.م</h3>
+                <p class="text-[10px] text-slate-400 mt-1">الكتلة الحجمية (67.5%)</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 card-glow transition">
+                <p class="text-[11px] font-semibold text-slate-400">تارجت المندوبين (كل فرد)</p>
+                <h3 id="kpi-rep-target" class="text-xl sm:text-2xl font-black text-sky-400 mt-1">600,000 ج.م</h3>
+                <p class="text-[10px] text-slate-400 mt-1">Zone 1 & Zone 2 (تدرج معقول)</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 card-glow transition">
+                <p class="text-[11px] font-semibold text-slate-400">المستهدف السنوي 2027</p>
+                <h3 id="kpi-annual-target" class="text-xl sm:text-2xl font-black text-purple-400 mt-1">36,800,000 ج.م</h3>
+                <p class="text-[10px] text-purple-400 font-bold mt-1">نمو مدروس بنسبة +28%</p>
+            </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- TAB 1: LIVE DASHBOARD & CHARTS -->
+        <!-- ======================================================== -->
+        <div id="tab-dashboard" class="space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Chart 1: Quota Split -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 card-glow transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-base font-bold text-white">توزيع المستهدف الشهري بين القنوات</h3>
+                            <span class="text-xs bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded font-bold">مباشر وحي</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-4">كبار الموزعين والجملة يشكلون الكتلة الأكبر مع حماية المندوبين الجدد</p>
+                        <div class="relative h-60 flex items-center justify-center">
+                            <canvas id="dashQuotaChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-800 text-center text-xs">
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">كبار الموزعين (ASM)</span>
+                            <strong id="badge-asm" class="text-orange-400">2.5M (67.5%)</strong>
+                        </div>
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">مندوب 1 (Zone 1)</span>
+                            <strong id="badge-rep1" class="text-sky-400">600K (16.2%)</strong>
+                        </div>
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">مندوب 2 (Zone 2)</span>
+                            <strong id="badge-rep2" class="text-emerald-400">600K (16.2%)</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 2: 90 Days Ramp Up -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 card-glow transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-base font-bold text-white">خطة الـ 90 يوماً للمندوبين الجدد والأريا</h3>
+                            <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">تدرج تشغيلي</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-4">التدرج من 350K للمندوب في الشهر الأول إلى 600K في الشهر الثالث</p>
+                        <div class="relative h-60 flex items-center justify-center">
+                            <canvas id="dashRampChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-800 text-center text-xs">
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">الشهر الأول</span>
+                            <strong id="badge-m1" class="text-orange-400">2.7M (350K/مندوب)</strong>
+                        </div>
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">الشهر الثاني</span>
+                            <strong id="badge-m2" class="text-sky-400">3.2M (450K/مندوب)</strong>
+                        </div>
+                        <div class="bg-slate-950 p-2 rounded-xl border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">الشهر الثالث</span>
+                            <strong id="badge-m3" class="text-emerald-400">3.7M (600K/مندوب)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart 3: Seasonality 2027 -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 card-glow transition">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                    <div>
+                        <h3 class="text-base font-bold text-white">المسار الفصلي لمبيعات عام 2027</h3>
+                        <p class="text-xs text-slate-400">مواسم الذروة: موسم الجامعات في Q3 وعروض نهاية العام في Q4</p>
+                    </div>
+                    <span id="badge-annual" class="text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30 px-3 py-1 rounded-full font-bold">
+                        36,800,000 ج.م سنوياً
+                    </span>
+                </div>
+                <div class="relative h-64">
+                    <canvas id="dashSeasonChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- TAB 2: MASTER COMMERCIAL STRATEGY -->
+        <!-- ======================================================== -->
+        <div id="tab-strategy" class="hidden space-y-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6">
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-lg font-black text-white flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-orange-500"></span>
+                        الاستراتيجية التجارية الميدانية الشاملة لأريا الجيزة 2027
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">الرؤية الميدانية، حصر الشوارع، خطة السير PJP، وحوكمة التدفقات النقدية</p>
+                </div>
+
+                <!-- Territory Census -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-2">
+                        <h3 class="text-sm font-bold text-sky-400 flex items-center gap-2">
+                            <span>📍</span> Zone 1: شمال ووسط الجيزة (المندوب الأول)
+                        </h3>
+                        <p class="text-xs text-slate-400">المهندسين، الدقي، العجوزة، إمبابة، الوراق، بشتيل</p>
+                        <ul class="text-xs space-y-1.5 text-slate-300 pt-2 list-disc list-inside">
+                            <li><strong>المهندسين:</strong> شارع جامعة الدول، سوريا، لبنان، أحمد عرابي، والبطل أحمد عبد العزيز.</li>
+                            <li><strong>الدقي:</strong> شارع التحرير، مصدق، محيط محطة المترو، ومول التحرير للكمبيوتر.</li>
+                            <li><strong>إمبابة وبشتيل:</strong> شارع الوحدة، طلعت حرب، القومية العربية، وترعة السواحل.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-2">
+                        <h3 class="text-sm font-bold text-emerald-400 flex items-center gap-2">
+                            <span>📍</span> Zone 2: جنوب وغرب الجيزة وأكتوبر (المندوب الثاني)
+                        </h3>
+                        <p class="text-xs text-slate-400">شارع فيصل، شارع الهرم، العمرانية، 6 أكتوبر، الشيخ زايد</p>
+                        <ul class="text-xs space-y-1.5 text-slate-300 pt-2 list-disc list-inside">
+                            <li><strong>شارع فيصل:</strong> العشرين، حسن محمد، المطبعة، العريش، والتعاون (أعلى كثافة تجزئة).</li>
+                            <li><strong>شارع الهرم:</strong> نصر الدين، مدكور، كايرو مول، ومحطة العريش.</li>
+                            <li><strong>6 أكتوبر وزايد:</strong> ميدان الحصري، المحور المركزي، مجمع الماجدة، ومحيط مول العرب.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Beat Plan -->
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <h3 class="text-sm font-bold text-orange-400 flex items-center gap-2">
+                        <span>🗓️</span> جدول خطوط السير الأسبوعية PJP
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300">
+                        <div class="space-y-1 bg-slate-900/60 p-3 rounded-xl">
+                            <strong class="text-sky-400 block mb-1">خط سير مندوب 1 (Zone 1):</strong>
+                            <p>• <strong>السبت:</strong> الدقي ومول التحرير للكمبيوتر ومحيط المترو.</p>
+                            <p>• <strong>الأحد:</strong> المهندسين (جامعة الدول ومصطفى محمود).</p>
+                            <p>• <strong>الاثنين:</strong> المهندسين والعجوزة (سوريا، لبنان، ونوال).</p>
+                            <p>• <strong>الثلاثاء:</strong> إمبابة (شارع الوحدة وميدان الكيت كات).</p>
+                            <p>• <strong>الأربعاء:</strong> الوراق وبشتيل (القومية وترعة السواحل).</p>
+                            <p>• <strong>الخميس:</strong> التحصيل الأسبوعي ومتابعة معارض الدقي الكبرى.</p>
+                        </div>
+                        <div class="space-y-1 bg-slate-900/60 p-3 rounded-xl">
+                            <strong class="text-emerald-400 block mb-1">خط سير مندوب 2 (Zone 2):</strong>
+                            <p>• <strong>السبت:</strong> أول شارع فيصل حتى محطة العشرين.</p>
+                            <p>• <strong>الأحد:</strong> فيصل الأوسط (حسن محمد حتى العريش والتعاون).</p>
+                            <p>• <strong>الاثنين:</strong> شارع الهرم الرئيسي (كايرو مول ونصر الدين).</p>
+                            <p>• <strong>الثلاثاء:</strong> 6 أكتوبر (الحصري والمحور المركزي والماجدة).</p>
+                            <p>• <strong>الأربعاء:</strong> الشيخ زايد ومحيط المولات والشركات.</p>
+                            <p>• <strong>الخميس:</strong> التحصيل الأسبوعي ومتابعة كبار عملاء فيصل.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Credit Rules -->
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <h3 class="text-sm font-bold text-amber-400 flex items-center gap-2">
+                        <span>🛡️</span> القواعد الصارمة لحوكمة الكاش والائتمان
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-300">
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block mb-1">1. الكاش أولاً للجديد:</strong>
+                            أول وثاني فاتورة لأي محل جديد كاش فوري 100% لإثبات الجدية قبل تفعيل كود الآجل.
+                        </div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block mb-1">2. سقف الآجل المنضبط:</strong>
+                            حد ائتماني 10,000 إلى 15,000 ج.م بمهلة 10-14 يوماً بنظام (فاتورة تسد فاتورة).
+                        </div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                            <strong class="text-white block mb-1">3. قاعدة Stop-Supply:</strong>
+                            تجميد فوري لتوريدات أي عميل يتأخر أكثر من 7 أيام عن موعد السداد.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- TAB 3: INTEGRATED 12-SLIDE PRESENTATION VIEWER -->
+        <!-- ======================================================== -->
+        <div id="tab-slides" class="hidden space-y-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4">
+                
+                <!-- Controls Bar -->
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-3 border-b border-slate-800 pb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full font-bold">عازف الشرائح التفاعلي</span>
+                        <span id="slide-indicator" class="text-xs font-bold text-white">الشريحة 1 من 12</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="prevSlide()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1">
+                            السابقة &rarr;
+                        </button>
+                        <button onclick="nextSlide()" class="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1">
+                            &larr; التالية
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Slide Frame (16:9 aspect) -->
+                <div id="slide-container" class="w-full bg-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-10 min-h-[420px] flex flex-col justify-between relative overflow-hidden shadow-2xl">
+                    <div class="absolute top-0 right-0 w-2 h-full bg-orange-500"></div>
+                    
+                    <!-- Slide Header -->
+                    <div>
+                        <span id="slide-category" class="text-[11px] font-bold text-orange-400 block mb-1">شركة 2B — قطاع إكسسوارات الموبايل واللابتوب</span>
+                        <h2 id="slide-title" class="text-xl sm:text-2xl font-black text-white leading-tight">عنوان الشريحة</h2>
+                    </div>
+
+                    <!-- Slide Dynamic Content Body -->
+                    <div id="slide-body" class="my-6"></div>
+
+                    <!-- Slide Footer -->
+                    <div class="border-t border-slate-800/80 pt-3 flex justify-between items-center text-[11px] text-slate-500">
+                        <span id="slide-footer">استراتيجية مبيعات 2027 الكبرى | أريا الجيزة</span>
+                        <span>شركة توبي (2B)</span>
+                    </div>
+                </div>
+
+                <!-- Slide Thumbnails Grid -->
+                <div class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-1.5 pt-2">
+                    <div id="slide-thumbs" class="contents"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- TAB 4: TEAM & REP TASK MANAGER -->
+        <!-- ======================================================== -->
+        <div id="tab-tasks" class="hidden space-y-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6">
+                
+                <!-- Tasks Header & Controls -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-800 pb-5">
+                    <div>
+                        <h2 class="text-lg font-black text-white flex items-center gap-2">
+                            <span>📋</span> إدارة ومتابعة مهام الفريق والمندوبين
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-1">إسناد ومتابعة المهام الميدانية لكل مسؤول على حدة مع إمكانية التعديل والإضافة في أي وقت</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="openAddTaskModal()" class="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-orange-600/30 transition flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            إضافة مهمة جديدة
+                        </button>
+                        <button onclick="shareTasksViaWhatsApp()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                            إرسال المهام لواتساب
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filter by Team Member -->
+                <div class="flex gap-2 overflow-x-auto pb-1 text-xs">
+                    <button onclick="filterTasks('all')" id="filter-all" class="px-4 py-2 rounded-xl bg-orange-600 text-white font-bold transition">الكل (جميع المهام)</button>
+                    <button onclick="filterTasks('asm')" id="filter-asm" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition">مهام الاريا مانجر (ASM)</button>
+                    <button onclick="filterTasks('rep1')" id="filter-rep1" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition">مهام مندوب 1 (Zone 1 - شمال الجيزة)</button>
+                    <button onclick="filterTasks('rep2')" id="filter-rep2" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition">مهام مندوب 2 (Zone 2 - جنوب الجيزة)</button>
+                </div>
+
+                <!-- Tasks Table / Cards Container -->
+                <div id="tasks-list" class="space-y-3"></div>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- TAB 5: DEBT AGING & STOP-SUPPLY RADAR (NEW ADDITION 1) -->
+        <!-- ======================================================== -->
+        <div id="tab-debts" class="hidden space-y-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6">
+                
+                <!-- Debt Header & Controls -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-800 pb-5">
+                    <div>
+                        <h2 class="text-lg font-black text-white flex items-center gap-2">
+                            <span>🛡️</span> رادار التحصيل وإدارة مخاطر الائتمان (Stop-Supply Watchlist)
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-1">مراقبة تواريخ استحقاق الفواتير الآجلة، وتطبيق قاعدة التجميد الفوري بعد 14 يوماً</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="openAddDebtModal()" class="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            تسجيل فاتورة آجلة جديدة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Debt KPI Bar -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-slate-950 p-4 rounded-2xl border border-emerald-500/30">
+                        <span class="text-xs font-bold text-emerald-400 block">🟢 فواتير آمنة ومنتظمة (0-7 أيام)</span>
+                        <h4 id="debt-safe-total" class="text-lg font-black text-white mt-1">0 ج.م</h4>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-2xl border border-amber-500/30">
+                        <span class="text-xs font-bold text-amber-400 block">🟡 اقتراب استحقاق (8-14 يوماً)</span>
+                        <h4 id="debt-warning-total" class="text-lg font-black text-white mt-1">0 ج.م</h4>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-2xl border border-red-500/30">
+                        <span class="text-xs font-bold text-red-400 block">🔴 متأخرة - STOP SUPPLY (&gt;14 يوماً)</span>
+                        <h4 id="debt-overdue-total" class="text-lg font-black text-red-400 mt-1">0 ج.م</h4>
+                    </div>
+                </div>
+
+                <!-- Debts List Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-right border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-800 text-slate-400 bg-slate-950/50">
+                                <th class="p-3">اسم المحل / العميل</th>
+                                <th class="p-3">المنطقة والمسؤول</th>
+                                <th class="p-3 text-center">قيمة الفاتورة</th>
+                                <th class="p-3 text-center">أيام التأخير / العمر</th>
+                                <th class="p-3 text-center">حالة الحساب</th>
+                                <th class="p-3 text-center">الإجراء الميداني</th>
+                            </tr>
+                        </thead>
+                        <tbody id="debts-tbody" class="divide-y divide-slate-800 text-slate-300">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- TAB 6: GIZA CUSTOMER MINI-CRM (NEW ADDITION 2) -->
+        <!-- ======================================================== -->
+        <div id="tab-crm" class="hidden space-y-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6">
+                
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-800 pb-5">
+                    <div>
+                        <h2 class="text-lg font-black text-white flex items-center gap-2">
+                            <span>👥</span> دليل وسجل عملاء ومحلات الجيزة الكبرى (Customer Mini-CRM)
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-1">قاعدة بيانات العملاء المعتمدين والموزعين مصنفة حسب الشوارع مع اتصال ومحادثة واتساب مباشرة</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="openAddCustomerModal()" class="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+                            إضافة عميل جديد
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customer Filter -->
+                <div class="flex gap-2 overflow-x-auto pb-1 text-xs">
+                    <button onclick="filterCRM('all')" id="crm-filter-all" class="px-4 py-2 rounded-xl bg-orange-600 text-white font-bold transition">جميع العملاء</button>
+                    <button onclick="filterCRM('Zone 1')" id="crm-filter-z1" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition">Zone 1 (المهندسين والدقي وإمبابة)</button>
+                    <button onclick="filterCRM('Zone 2')" id="crm-filter-z2" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition">Zone 2 (فيصل والهرم وأكتوبر)</button>
+                </div>
+
+                <!-- Customer Directory Grid -->
+                <div id="crm-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Populated by JS -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- TAB 7: ORDER BASKET & PROMOTION SIMULATOR (NEW ADDITION 3) -->
+        <!-- ======================================================== -->
+        <div id="tab-basket" class="hidden space-y-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6">
+                
+                <div class="border-b border-slate-800 pb-4">
+                    <h2 class="text-lg font-black text-white flex items-center gap-2">
+                        <span>🛒</span> صانع الباقات وأوامر التوريد اللحظي (Order Basket & Promotion Builder)
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">تجهيز طلبيات المحلات الميدانية بلحظتها، حساب خصم الكاش، وتوليد أمر التوريد للمخزن</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Basket Product Quantity Inputs -->
+                    <div class="lg:col-span-2 space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            
+                            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-orange-400">⚡ شواحن سريعة GaN / PD</span>
+                                    <span class="text-[11px] text-slate-400">متوسط 160 ج.م</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="number" id="qty-chargers" value="15" min="0" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2 text-white font-bold text-center" oninput="calculateBasket()">
+                                    <span class="text-xs text-slate-400">قطعة</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-sky-400">🔌 كابلات PD / Type-C معتمدة</span>
+                                    <span class="text-[11px] text-slate-400">متوسط 55 ج.م</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="number" id="qty-cables" value="30" min="0" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2 text-white font-bold text-center" oninput="calculateBasket()">
+                                    <span class="text-xs text-slate-400">قطعة</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-emerald-400">🔋 بنوك طاقة Power Banks</span>
+                                    <span class="text-[11px] text-slate-400">متوسط 450 ج.م</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="number" id="qty-powerbanks" value="4" min="0" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2 text-white font-bold text-center" oninput="calculateBasket()">
+                                    <span class="text-xs text-slate-400">قطعة</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-purple-400">🎧 سماعات بلوتوث TWS وسلكية</span>
+                                    <span class="text-[11px] text-slate-400">متوسط 220 ج.م</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="number" id="qty-audio" value="6" min="0" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2 text-white font-bold text-center" oninput="calculateBasket()">
+                                    <span class="text-xs text-slate-400">قطعة</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2 sm:col-span-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs font-bold text-amber-400">💼 حقائب لابتوب وموزعات Type-C Hubs</span>
+                                    <span class="text-[11px] text-slate-400">متوسط 420 ج.م</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="number" id="qty-laptop" value="3" min="0" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2 text-white font-bold text-center" oninput="calculateBasket()">
+                                    <span class="text-xs text-slate-400">قطعة</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Basket Summary Card -->
+                    <div class="bg-slate-950 p-5 rounded-2xl border border-orange-500/40 flex flex-col justify-between space-y-4">
+                        <div class="space-y-3">
+                            <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2">ملخص أمر التوريد والفاتورة</h3>
+                            <div class="flex justify-between text-xs text-slate-400">
+                                <span>إجمالي قيمة البضاعة:</span>
+                                <strong id="basket-gross" class="text-white">0 ج.م</strong>
+                            </div>
+                            <div class="flex justify-between text-xs text-slate-400">
+                                <span>خصم الكاش الفوري (3%):</span>
+                                <strong id="basket-discount" class="text-emerald-400">- 0 ج.م</strong>
+                            </div>
+                            <div class="border-t border-slate-800 pt-2 flex justify-between text-sm font-black text-white">
+                                <span>صافي الفاتورة كاش:</span>
+                                <strong id="basket-net" class="text-orange-400 text-lg">0 ج.م</strong>
+                            </div>
+                            <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-[11px] text-slate-400">
+                                <span>هدية الباقة: <strong>استاند كاونتر مدمج مجاني</strong> عند سحب هذه الطلبية كاش.</span>
+                            </div>
+                        </div>
+
+                        <button onclick="sendOrderToWarehouse()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold shadow-lg shadow-emerald-600/30 transition flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                            إرسال أمر التوريد للمخزن (واتساب)
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- TAB 8: THE 7 FIELD WEAPONS -->
+        <!-- ======================================================== -->
+        <div id="tab-weapons" class="hidden space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 border-emerald-500/30">
+                    <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded font-bold">1. استبدال التالف RMA</span>
+                    <h4 class="text-base font-bold text-white mt-2">استبدال فوري من شنطة المندوب</h4>
+                    <p class="text-xs text-slate-400 mt-2">عهدة 2,500 ج.م بضاعة عائمة لكل مندوب لاستبدال أي قطعة تالفة أمام التاجر فوراً في ثوانٍ، لكسر أقوى اعتراض لدى المحلات.</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 border-orange-500/30">
+                    <span class="text-xs bg-orange-500/20 text-orange-300 px-2.5 py-1 rounded font-bold">2. نادي ولاء التاجر</span>
+                    <h4 class="text-base font-bold text-white mt-2">بونص ربع سنوي للتجار الملتزمين</h4>
+                    <p class="text-xs text-slate-400 mt-2">شرائح سحب (فضية: 300 ج.م بضاعة مجانية، ذهبية: 800 ج.م + هدايا عينية، بلاتينية: 1,500 ج.م + يافطة مضيئة).</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 border-sky-500/30">
+                    <span class="text-xs bg-sky-500/20 text-sky-300 px-2.5 py-1 rounded font-bold">3. حوافز المندوبين</span>
+                    <h4 class="text-base font-bold text-white mt-2">مكافآت فورية على الكاش والعملاء</h4>
+                    <p class="text-xs text-slate-400 mt-2">مكافأة 50-100 ج.م عن كل محل جديد كاش &ge; 3,000 ج.م + عمولة إضافية 0.5% على كل جنيه كاش فوق الـ 50%.</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 border-amber-500/30">
+                    <span class="text-xs bg-amber-500/20 text-amber-300 px-2.5 py-1 rounded font-bold">4. كاونتر الدفع الذهبي</span>
+                    <h4 class="text-base font-bold text-white mt-2">الاستحواذ على الشراء اللحظي</h4>
+                    <p class="text-xs text-slate-400 mt-2">وحدة عرض أكريليك مضيئة تحمل 6 كابلات و3 شواحن بجانب درج الكاشير مباشرة للاستحواذ على قرار الشراء السريع.</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 border-rose-500/30">
+                    <span class="text-xs bg-rose-500/20 text-rose-300 px-2.5 py-1 rounded font-bold">5. صيد المنافسين</span>
+                    <h4 class="text-base font-bold text-white mt-2">عرض استبدال ستاندات المنافسين</h4>
+                    <p class="text-xs text-slate-400 mt-2">خصم 3% إضافي لأي محل يوافق على استبدال ستاند Joyroom أو Oraimo بستاند 2B، مع استبدال التالف ودعم تسويقي.</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 border-purple-500/30">
+                    <span class="text-xs bg-purple-500/20 text-purple-300 px-2.5 py-1 rounded font-bold">6. طقوس الإدارة اليومية</span>
+                    <h4 class="text-base font-bold text-white mt-2">اجتماع 9:30 ص وتقفيل 6:00 م</h4>
+                    <p class="text-xs text-slate-400 mt-2">مكالمة صباحية 10 دقائق لتدقيق خط السير PJP + شيت تقفيل مسائي وإيداع النقدية فوراً بالبنك لمنع مخاطر الكاش.</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 border-indigo-500/30 md:col-span-2 lg:col-span-3">
+                    <span class="text-xs bg-indigo-500/20 text-indigo-300 px-2.5 py-1 rounded font-bold">7. صفقات الجامعات B2B</span>
+                    <h4 class="text-base font-bold text-white mt-2">اقتحام محيط جامعة القاهرة وجامعات 6 أكتوبر ومول التحرير</h4>
+                    <p class="text-xs text-slate-400 mt-1">حزم الطلاب المجمعة (شنطة 2B مقاومة للمطر + ماوس + Hub) لمكتبات ومعارض بين السرايات وميدان الحصري وعقود اتحادات الكليات.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- TAB 9: CALCULATOR & DAILY CALL SHEET -->
+        <!-- ======================================================== -->
+        <div id="tab-calculator" class="hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                <!-- Interactive Rep Commission Calculator -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                    <div class="border-b border-slate-800 pb-3">
+                        <h3 class="text-base font-bold text-white">🧮 حاسبة حوافز وعمولات المندوب الميداني</h3>
+                        <p class="text-xs text-slate-400">احسب دخل وبونص المندوب بناءً على المبيعات ونسبة الكاش والعملاء الجدد</p>
+                    </div>
+
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <label class="text-slate-300 block mb-1">المبيعات الشهرية للمندوب (ج.م):</label>
+                            <input id="calc-sales" type="number" value="600000" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white font-bold" oninput="calculateCommission()">
+                        </div>
+
+                        <div>
+                            <label class="text-slate-300 block mb-1">نسبة الكاش الفوري المحصل (%):</label>
+                            <input id="calc-cash-percent" type="number" value="55" min="0" max="100" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white font-bold" oninput="calculateCommission()">
+                        </div>
+
+                        <div>
+                            <label class="text-slate-300 block mb-1">عدد المحلات الجديدة التي تم فتحها هذا الشهر:</label>
+                            <input id="calc-new-accounts" type="number" value="10" min="0" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white font-bold" oninput="calculateCommission()">
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 pt-3">
+                        <div class="flex justify-between text-xs text-slate-400">
+                            <span>بونص العملاء الجدد (New Account Bounty):</span>
+                            <span id="res-bounty" class="font-bold text-emerald-400">500 ج.م</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-400">
+                            <span>حافز تفوق الكاش الفوري (Cash Kicker 0.5%):</span>
+                            <span id="res-kicker" class="font-bold text-sky-400">150 ج.م</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-400">
+                            <span>عمولة تحقيق التارجت الميداني (Tier Bonus):</span>
+                            <span id="res-tier" class="font-bold text-orange-400">4,500 ج.م</span>
+                        </div>
+                        <div class="border-t border-slate-800 pt-2 flex justify-between text-sm font-black text-white">
+                            <span>إجمالي حافز المندوب المستحق:</span>
+                            <span id="res-total" class="text-orange-400 text-lg">5,150 ج.م</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Call Sheet Form -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                    <div class="border-b border-slate-800 pb-3">
+                        <h3 class="text-base font-bold text-white">📋 نموذج التقرير اليومي السريع (Daily Call Sheet)</h3>
+                        <p class="text-xs text-slate-400">املأ البيانات وانسخ التقرير فورياً لإرساله على جروب الواتساب</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div>
+                            <label class="text-slate-300 block mb-1">اسم المسؤول والمنطقة:</label>
+                            <input id="sheet-name" type="text" value="مندوب 1 (Zone 1)" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                        </div>
+                        <div>
+                            <label class="text-slate-300 block mb-1">الزيارات المنفذة اليوم:</label>
+                            <input id="sheet-visits" type="number" value="9" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                        </div>
+                        <div>
+                            <label class="text-slate-300 block mb-1">الفواتير الناجحة (Strike):</label>
+                            <input id="sheet-strike" type="number" value="6" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                        </div>
+                        <div>
+                            <label class="text-slate-300 block mb-1">إجمالي مبيعات اليوم (ج.م):</label>
+                            <input id="sheet-sales" type="number" value="24000" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                        </div>
+                        <div>
+                            <label class="text-slate-300 block mb-1">المحصل كاش فوري (ج.م):</label>
+                            <input id="sheet-cash" type="number" value="14500" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                        </div>
+                        <div>
+                            <label class="text-slate-300 block mb-1">محلات جديدة تم فتحها:</label>
+                            <input id="sheet-new" type="text" value="محل النجوم (فيصل) - 4,000 كاش" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                        </div>
+                    </div>
+
+                    <button onclick="copyDailySheet()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                        نسخ رسالة التقرير اليومي لواتساب
+                    </button>
+                    <p id="copy-status" class="text-[11px] text-emerald-400 text-center hidden">تم نسخ الرسالة بنجاح إلى الحافظة!</p>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 1: EDIT CONFIGURATION / NUMBERS -->
+    <!-- ======================================================== -->
+    <div id="modal-config" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 max-w-lg w-full space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                    <span>⚙️</span> تعديل أرقام الخطة والتارجت
+                </h3>
+                <button onclick="closeConfigModal()" class="text-slate-400 hover:text-white">&times;</button>
+            </div>
+
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="text-slate-300 block mb-1">التارجت الأساسي (ج.م):</label>
+                    <input id="cfg-base" type="number" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white font-bold">
+                </div>
+                <div>
+                    <label class="text-slate-300 block mb-1">الزيادة التوسعية (ج.م):</label>
+                    <input id="cfg-expansion" type="number" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white font-bold">
+                </div>
+                <div class="border-t border-slate-800 pt-2">
+                    <label class="text-slate-300 block mb-1">حصة كبار الموزعين والجملة - ASM (ج.م):</label>
+                    <input id="cfg-asm" type="number" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-orange-400 font-bold">
+                </div>
+                <div>
+                    <label class="text-slate-300 block mb-1">تارجت مندوب 1 المستقر - Zone 1 (ج.م):</label>
+                    <input id="cfg-rep1" type="number" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-sky-400 font-bold">
+                </div>
+                <div>
+                    <label class="text-slate-300 block mb-1">تارجت مندوب 2 المستقر - Zone 2 (ج.م):</label>
+                    <input id="cfg-rep2" type="number" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-emerald-400 font-bold">
+                </div>
+                <div class="border-t border-slate-800 pt-2">
+                    <label class="text-slate-300 block mb-1">المستهدف السنوي لعام 2027 (ج.م):</label>
+                    <input id="cfg-annual" type="number" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-purple-400 font-bold">
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-2 pt-3 border-t border-slate-800">
+                <button onclick="resetConfigToDefault()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold">إعادة للقيم الأصلية</button>
+                <button onclick="saveConfig()" class="px-5 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs font-bold">حفظ وتطبيق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 2: ADD NEW TASK (FOR ASM & REPS) -->
+    <!-- ======================================================== -->
+    <div id="modal-task" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 max-w-md w-full space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                    <span>➕</span> إضافة مهمة جديدة للمسؤول
+                </h3>
+                <button onclick="closeAddTaskModal()" class="text-slate-400 hover:text-white">&times;</button>
+            </div>
+
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="text-slate-300 block mb-1">إسناد المهمة إلى:</label>
+                    <select id="task-assignee" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                        <option value="asm">الاريا مانجر (Area Sales Manager)</option>
+                        <option value="rep1">مندوب 1 (Zone 1: شمال ووسط الجيزة)</option>
+                        <option value="rep2">مندوب 2 (Zone 2: جنوب وغرب الجيزة)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-slate-300 block mb-1">عنوان المهمة الميدانية:</label>
+                    <input id="task-title" type="text" placeholder="مثلاً: زيارة معارض مول التحرير وتنشيط باقات اللابتوب" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                </div>
+                <div>
+                    <label class="text-slate-300 block mb-1">المنطقة / الشارع المستهدف:</label>
+                    <input id="task-location" type="text" placeholder="مثلاً: شارع فيصل - محطة العريش" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-slate-300 block mb-1">اليوم / الموعد:</label>
+                        <select id="task-day" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                            <option value="السبت">السبت</option>
+                            <option value="الأحد">الأحد</option>
+                            <option value="الاثنين">الاثنين</option>
+                            <option value="الثلاثاء">الثلاثاء</option>
+                            <option value="الأربعاء">الأربعاء</option>
+                            <option value="الخميس">الخميس</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-slate-300 block mb-1">الأولوية:</label>
+                        <select id="task-priority" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                            <option value="عاجلة">عاجلة ومرتفعة</option>
+                            <option value="عادية">عادية</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-2 pt-3 border-t border-slate-800">
+                <button onclick="closeAddTaskModal()" class="px-4 py-2 bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold">إلغاء</button>
+                <button onclick="saveTask()" class="px-5 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs font-bold">إضافة المهمة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 3: ADD CREDIT DEBT RECORD -->
+    <!-- ======================================================== -->
+    <div id="modal-debt" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 max-w-md w-full space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                    <span>📝</span> تسجيل فاتورة آجلة للمتابعة
+                </h3>
+                <button onclick="closeAddDebtModal()" class="text-slate-400 hover:text-white">&times;</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="text-slate-300 block mb-1">اسم المحل / العميل:</label>
+                    <input id="debt-shop" type="text" placeholder="مثلاً: سنتر الأهرام للموبايل" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white font-bold">
+                </div>
+                <div>
+                    <label class="text-slate-300 block mb-1">المنطقة والشارع:</label>
+                    <input id="debt-location" type="text" placeholder="مثلاً: شارع فيصل - محطة العشرين" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-slate-300 block mb-1">المسؤول البيعي:</label>
+                        <select id="debt-rep" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                            <option value="مندوب 1 (Zone 1)">مندوب 1 (Zone 1)</option>
+                            <option value="مندوب 2 (Zone 2)">مندوب 2 (Zone 2)</option>
+                            <option value="الاريا مانجر">الاريا مانجر</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-slate-300 block mb-1">قيمة الفاتورة (ج.م):</label>
+                        <input id="debt-amount" type="number" placeholder="مثلاً: 12000" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-orange-400 font-bold">
+                    </div>
+                </div>
+                <div>
+                    <label class="text-slate-300 block mb-1">أيام التأخير / العمر المنقضي:</label>
+                    <input id="debt-days" type="number" value="5" min="0" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white font-bold">
+                </div>
+            </div>
+            <div class="flex justify-end gap-2 pt-3 border-t border-slate-800">
+                <button onclick="closeAddDebtModal()" class="px-4 py-2 bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold">إلغاء</button>
+                <button onclick="saveDebt()" class="px-5 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs font-bold">تسجيل الفاتورة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 4: ADD CUSTOMER TO CRM -->
+    <!-- ======================================================== -->
+    <div id="modal-customer" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 max-w-md w-full space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                    <span>👤</span> إضافة عميل جديد لدليل الجيزة
+                </h3>
+                <button onclick="closeAddCustomerModal()" class="text-slate-400 hover:text-white">&times;</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="text-slate-300 block mb-1">اسم المحل / الشركة:</label>
+                    <input id="crm-name" type="text" placeholder="مثلاً: كمبيولاند للابتوب" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white font-bold">
+                </div>
+                <div>
+                    <label class="text-slate-300 block mb-1">المنطقة والشارع:</label>
+                    <input id="crm-street" type="text" placeholder="مثلاً: شارع التحرير - الدقي" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-slate-300 block mb-1">النطاق الجغرافي:</label>
+                        <select id="crm-zone" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                            <option value="Zone 1">Zone 1 (شمال الجيزة)</option>
+                            <option value="Zone 2">Zone 2 (جنوب الجيزة)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-slate-300 block mb-1">تصنيف العميل:</label>
+                        <select id="crm-class" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                            <option value="Class A">Class A (كبار جملة / معارض)</option>
+                            <option value="Class B">Class B (تجزئة رئيسي)</option>
+                            <option value="Class C">Class C (تجزئة سريع)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-slate-300 block mb-1">اسم المسؤول / المالك:</label>
+                        <input id="crm-owner" type="text" placeholder="أ/ محمد" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white">
+                    </div>
+                    <div>
+                        <label class="text-slate-300 block mb-1">رقم الهاتف / الواتساب:</label>
+                        <input id="crm-phone" type="text" placeholder="01012345678" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white font-bold">
+                    </div>
+                </div>
+                <div>
+                    <label class="text-slate-300 block mb-1">السقف الائتماني (ج.م):</label>
+                    <input id="crm-limit" type="number" placeholder="مثلاً: 15000" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-orange-400 font-bold">
+                </div>
+            </div>
+            <div class="flex justify-end gap-2 pt-3 border-t border-slate-800">
+                <button onclick="closeAddCustomerModal()" class="px-4 py-2 bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold">إلغاء</button>
+                <button onclick="saveCustomer()" class="px-5 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-xl text-xs font-bold">إضافة العميل</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 5: BOARD-READY EXECUTIVE REPORT GENERATOR -->
+    <!-- ======================================================== -->
+    <div id="modal-board" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 max-w-2xl w-full space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                    <span>📑</span> مولد التقرير التنفيذي الرسمي للإدارة العليا ومجلس الإدارة
+                </h3>
+                <button onclick="closeBoardReportModal()" class="text-slate-400 hover:text-white">&times;</button>
+            </div>
+
+            <!-- Report Preview Content -->
+            <div id="board-report-text" class="bg-slate-950 border border-slate-800 rounded-2xl p-5 text-xs text-slate-300 space-y-3 leading-relaxed font-mono select-all">
+                <!-- Dynamically generated -->
+            </div>
+
+            <div class="flex justify-end gap-2 pt-3 border-t border-slate-800">
+                <button onclick="copyBoardReport()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                    نسخ التقرير كإيميل رسمي
+                </button>
+                <button onclick="window.print()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-semibold">طباعة التقرير</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Core Script -->
+    <script>
+        // ==========================================
+        // CONFIG & STATE
+        // ==========================================
+        const DEFAULT_CONFIG = {
+            base: 2200000,
+            expansion: 1500000,
+            asm: 2500000,
+            rep1: 600000,
+            rep2: 600000,
+            annual: 36800000
+        };
+
+        let appConfig = JSON.parse(localStorage.getItem('2b_master_config')) || DEFAULT_CONFIG;
+
+        // Default initial tasks
+        const DEFAULT_TASKS = [
+            { id: 1, assignee: 'asm', title: 'إغلاق عقد توريد شهري مع كبار موزعي أكتوبر (150K سحب كاش)', location: 'مدينة 6 أكتوبر', day: 'السبت', priority: 'عاجلة', done: false },
+            { id: 2, assignee: 'asm', title: 'مراجعة تسويات التالف واستعاضة شنطة الاستبدال RMA', location: 'مقر الشركة', day: 'الخميس', priority: 'عادية', done: true },
+            { id: 3, assignee: 'rep1', title: 'زيارة معارض الكمبيوتر بمول التحرير ومحيط مترو الدقي', location: 'الدقي', day: 'السبت', priority: 'عاجلة', done: false },
+            { id: 4, assignee: 'rep1', title: 'فتح عميلين جديدين كاش في شارع جامعة الدول وسوريا', location: 'المهندسين', day: 'الأحد', priority: 'عاجلة', done: false },
+            { id: 5, assignee: 'rep1', title: 'تركيب 3 وحدات كاونتر مدمجة لمحلات إمبابة (شارع الوحدة)', location: 'إمبابة', day: 'الثلاثاء', priority: 'عادية', done: false },
+            { id: 6, assignee: 'rep2', title: 'مسح محلات أول شارع فيصل حتى محطة العشرين (كثافة موبايل)', location: 'شارع فيصل', day: 'السبت', priority: 'عاجلة', done: false },
+            { id: 7, assignee: 'rep2', title: 'تنشيط باقات الشواحن والكابلات بمحلات الهرم (كايرو مول)', location: 'شارع الهرم', day: 'الاثنين', priority: 'عادية', done: false },
+            { id: 8, assignee: 'rep2', title: 'تحصيل الفواتير المجدولة في حدود سقف الآجل (10K-15K)', location: 'فيصل والهرم', day: 'الخميس', priority: 'عاجلة', done: false }
+        ];
+
+        let appTasks = JSON.parse(localStorage.getItem('2b_master_tasks')) || DEFAULT_TASKS;
+        let currentTaskFilter = 'all';
+
+        // Default Debts Data
+        const DEFAULT_DEBTS = [
+            { id: 1, shop: 'سنتر الأهرام للموبايل', location: 'شارع فيصل - محطة العشرين', rep: 'مندوب 2 (Zone 2)', amount: 12000, days: 5 },
+            { id: 2, shop: 'تكنو مصر للكمبيوتر', location: 'مول التحرير - الدقي', rep: 'مندوب 1 (Zone 1)', amount: 15000, days: 11 },
+            { id: 3, shop: 'محل رنين للإلكترونيات', location: 'شارع الوحدة - إمبابة', rep: 'مندوب 1 (Zone 1)', amount: 9500, days: 16 },
+            { id: 4, shop: 'سنتر الباشا فون', location: 'ميدان الحصري - 6 أكتوبر', rep: 'مندوب 2 (Zone 2)', amount: 14000, days: 3 }
+        ];
+
+        let appDebts = JSON.parse(localStorage.getItem('2b_master_debts')) || DEFAULT_DEBTS;
+
+        // Default CRM Customers Data
+        const DEFAULT_CUSTOMERS = [
+            { id: 1, name: 'موزع الصعيدي للجملة', zone: 'Zone 2', street: 'شارع فيصل الرئيسي', owner: 'الحاج إبراهيم', phone: '01012345678', class: 'Class A', limit: 200000 },
+            { id: 2, name: 'معرض تكنو مصر للكمبيوتر', zone: 'Zone 1', street: 'مول التحرير - الدقي', owner: 'أ/ سامح', phone: '01123456789', class: 'Class A', limit: 80000 },
+            { id: 3, name: 'محل آبل ستور فيصل', zone: 'Zone 2', street: 'شارع فيصل - حسن محمد', owner: 'أ/ كريم', phone: '01234567890', class: 'Class B', limit: 15000 },
+            { id: 4, name: 'رويال فون المهندسين', zone: 'Zone 1', street: 'شارع سوريا - المهندسين', owner: 'أ/ ماجد', phone: '01098765432', class: 'Class B', limit: 15000 },
+            { id: 5, name: 'سمارت تيك إمبابة', zone: 'Zone 1', street: 'شارع الوحدة - إمبابة', owner: 'أ/ طارق', phone: '01187654321', class: 'Class C', limit: 0 },
+            { id: 6, name: 'ديجيتال زون أكتوبر', zone: 'Zone 2', street: 'مجمع الماجدة - 6 أكتوبر', owner: 'أ/ ياسر', phone: '01287654321', class: 'Class B', limit: 15000 }
+        ];
+
+        let appCustomers = JSON.parse(localStorage.getItem('2b_master_customers')) || DEFAULT_CUSTOMERS;
+        let currentCrmFilter = 'all';
+
+        // ==========================================
+        // SLIDES DATA (12 COMPREHENSIVE SLIDES)
+        // ==========================================
+        const SLIDES = [
+            { title: "استراتيجية مبيعات 2027 الكبرى وخطة قفزة الإيرادات لمنطقة الجيزة (3.7M)", subtitle: "شركة توبي (2B) — قطاع إكسسوارات الموبايل واللابتوب", type: "cover" },
+            {
+                title: "المؤشرات الرقمية الكبرى لاستراتيجية الجيزة 2027 (معايرة واقعية)",
+                type: "grid",
+                items: [
+                    { title: "3,700,000 ج.م", color: "orange", desc: "المستهدف الشهري الإجمالي (2.2M أساس + 1.5M توسع)." },
+                    { title: "36,800,000 ج.م", color: "green", desc: "المستهدف السنوي الواقعي لعام 2027 بنمو +28%." },
+                    { title: "1,850,000 ج.م", color: "blue", desc: "مبيعات الكاش الفوري شهرياً (50%+) و DSO &le; 20 يوماً." },
+                    { title: "350K - 600K", color: "orange", desc: "تدرج المندوب الجديد في خطة الـ 90 يوماً لمنع الإحباط." }
+                ]
+            },
+            {
+                title: "توزيع التارجت الشهري الجديد بين القنوات والفريق",
+                type: "grid",
+                items: [
+                    { title: "كبار الموزعين والجملة (2.5M)", color: "orange", desc: "إشراف الاريا مانجر: 67.5% من الحجم، توريدات كراتين وكميات B2B." },
+                    { title: "مندوب 1: Zone 1 (600K)", color: "blue", desc: "شمال الجيزة: المهندسين والدقي ومول التحرير وإمبابة (8-10 زيارات)." },
+                    { title: "مندوب 2: Zone 2 (600K)", color: "green", desc: "جنوب الجيزة: فيصل والهرم و 6 أكتوبر وزايد (أعلى كثافة موبايل)." }
+                ]
+            },
+            {
+                title: "جسر الإيرادات الواقعي: تفكيك الـ 1.5M الإضافية شهرياً",
+                type: "grid",
+                items: [
+                    { title: "+700K: كبار الموزعين", color: "orange", desc: "زيادة سحب 4-5 موزعين كبار بالجيزة وأكتوبر بعقود توريد منتظمة." },
+                    { title: "+350K: تجزئة جديدة", color: "blue", desc: "فتح 16-20 محل تجزئة جديد شهرياً (8-10 لكل مندوب كاش فوري)." },
+                    { title: "+250K: باقات الجامعات", color: "green", desc: "حزم اللابتوب بمحيط جامعة القاهرة وجامعات 6 أكتوبر ومول التحرير." },
+                    { title: "+200K: رفع متوسط الطلب", color: "orange", desc: "ربط الشواحن السريعة بكابلات PD المعتمدة ورفع الفاتورة لـ 5,500 ج.م." }
+                ]
+            },
+            {
+                title: "خطة الـ 90 يوماً للمندوبين الجدد والأريا (تدرج معقول)",
+                type: "grid",
+                items: [
+                    { title: "الشهر 1: التأسيس (2.7M)", color: "orange", desc: "الأريا +500K | المندوب 350K | نزول مزدوج وفتح 8 عملاء كاش." },
+                    { title: "الشهر 2: التوسع (3.2M)", color: "blue", desc: "الأريا +500K | المندوب 450K | تكرار سحب المحلات والكاونتر وسقف 10K." },
+                    { title: "الشهر 3: الاستقرار (3.7M)", color: "green", desc: "اكتمال الـ 1.5M | المندوب 600K | استقلالية كاملة ونسبة كاش 50%+." }
+                ]
+            },
+            {
+                title: "استراتيجية عام 2027 السنوية الواقعية (36.8M ج.م)",
+                type: "grid",
+                items: [
+                    { title: "Q1: هادئ وتأسيس", color: "blue", desc: "7.5M (2.5M/شهر) — تجديد مخزون التجار بعد الجرد وإجازة نصف العام." },
+                    { title: "Q2: الأعياد والصيف", color: "green", desc: "9.0M (3.0M/شهر) — الأعياد والمصايف والباور بانك السعات الكبيرة." },
+                    { title: "Q3: ذروة الجامعات", color: "orange", desc: "11.0M (3.66M/شهر) — الموسم الذهبي: العودة للمدارس واللابتوب." },
+                    { title: "Q4: عروض نهاية العام", color: "purple", desc: "9.3M (3.1M/شهر) — البلاك فرايداي وإغلاق التعاقدات السنوية." }
+                ]
+            },
+            {
+                title: "محفظة المنتجات الاستراتيجية لشركة 2B",
+                type: "split",
+                left: { title: "إكسسوارات الموبايل (عالي الدوران والسيولة)", desc: "شواحن سريعة GaN، كابلات PD، بنوك طاقة 10K-30K، وسماعات TWS لحجز مساحة الرف والسيولة اليومية." },
+                right: { title: "إكسسوارات اللابتوب والصفقات (عالي القيمة)", desc: "حقائب ظهر مقاومة للصدمات، موزعات Type-C Hubs، ماوسات وكيبوردات لمعارض الكمبيوتر والجامعات لتعظيم الربحية." }
+            },
+            {
+                title: "حوكمة السيولة وضمان التدفقات النقدية (DSO Radar)",
+                type: "grid",
+                items: [
+                    { title: "الكاش أولاً للجديد", color: "orange", desc: "كاش فوري 100% لأول فاتورتين لإثبات الجدية مع خصم 3% تعجيل دفع." },
+                    { title: "سقف الآجل المنضبط", color: "blue", desc: "حد ائتماني 10K-15K بمهلة 10-14 يوماً بنظام (فاتورة تسد فاتورة)." },
+                    { title: "قاعدة Stop-Supply", color: "green", desc: "تجميد فوري لأي عميل يتأخر أكثر من 7 أيام لتصفير الديون المعدومة." }
+                ]
+            },
+            {
+                title: "بروتوكول الاستبدال الفوري RMA ونادي ولاء التاجر (الأسلحة 1 و 2)",
+                type: "grid",
+                items: [
+                    { title: "استبدال فوري بلحظتها (RMA)", color: "green", desc: "شنطة استبدال عائمة 2,500 ج.م مع المندوب لاستبدال التالف فورياً أمام التاجر." },
+                    { title: "نادي ولاء التاجر", color: "orange", desc: "بونص ربع سنوي: فضية (300 ج.م بضاعة)، ذهبية (800 ج.م + هدايا)، بلاتينية (1,500 ج.م + يافطة)." },
+                    { title: "الأثر الميداني", color: "blue", desc: "تحويل بائع المحل لسفير لـ 2B وضمان انتظام السداد لحصد بونص نهاية الشهر." }
+                ]
+            },
+            {
+                title: "حوافز المندوبين وكاونتر الدفع وصيد المنافسين (الأسلحة 3 و 4 و 5)",
+                type: "grid",
+                items: [
+                    { title: "حوافز المندوبين (Bounty)", color: "blue", desc: "مكافأة 50-100 ج.م عن كل محل جديد كاش + 0.5% Cash Kicker على مبيعات الكاش." },
+                    { title: "كاونتر الدفع الذهبي", color: "orange", desc: "استاند أكريليك مدمج بجانب الكاشير مباشرة لاقتناص قرار الشراء اللحظي (Impulse)." },
+                    { title: "صيد المنافسين (Trade-in)", color: "green", desc: "خصم 3% إضافي واستبدال التالف لأي محل يستبدل ستاند Joyroom أو Oraimo بـ 2B." }
+                ]
+            },
+            {
+                title: "طقوس الإدارة اليومية وصفقات الجامعات B2B (الأسلحة 6 و 7)",
+                type: "split",
+                left: { title: "طقوس الإدارة اليومية والانضباط", desc: "لقاء الصباح (09:30 ص) مكالمة 10 دقائق لتدقيق خط السير + تقفيل اليوم (06:00 م) وتوريد الكاش بالبنك فوراً." },
+                right: { title: "صفقات الجامعات ومعارض اللابتوب", desc: "حزم الطلاب الذكية (حقيبة + ماوس + Hub) لمكتبات بين السرايات وجامعة 6 أكتوبر ومعارض مول التحرير." }
+            },
+            {
+                title: "الميثاق الختامي والتعهد القيادي لقطاع الجيزة 2027",
+                type: "grid",
+                items: [
+                    { title: "1. الانضباط والسيولة", color: "orange", desc: "نسبة كاش &ge; 50% وتصفير الديون المعدومة 0.0% بنظام Stop-Supply." },
+                    { title: "2. ريادة سوق الجيزة", color: "blue", desc: "تحويل 2B للخيار الأول في معارض ومحلات الجيزة وتحقيق 36.8 مليون ج.م." },
+                    { title: "3. فريق مبيعات بطل", color: "green", desc: "تطوير المندوبين الجدد وتحويلهم لكوادر مبيعات محترفة وبيئة عمل محفزة." }
+                ]
+            }
+        ];
+
+        let currentSlideIdx = 0;
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        window.addEventListener('DOMContentLoaded', () => {
+            renderConfigValues();
+            initCharts();
+            renderSlide(currentSlideIdx);
+            renderSlideThumbnails();
+            renderTasks();
+            renderDebts();
+            renderCustomers();
+            calculateBasket();
+            calculateCommission();
+        });
+
+        // ==========================================
+        // TAB SWITCHING
+        // ==========================================
+        function switchTab(tabId) {
+            const tabs = ['tab-dashboard', 'tab-strategy', 'tab-slides', 'tab-tasks', 'tab-debts', 'tab-crm', 'tab-basket', 'tab-weapons', 'tab-calculator'];
+            tabs.forEach(t => {
+                const el = document.getElementById(t);
+                if (el) el.classList.add('hidden');
+                const btn = document.getElementById('btn-' + t);
+                if (btn) btn.className = 'py-2 text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap';
+            });
+
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) targetTab.classList.remove('hidden');
+            const targetBtn = document.getElementById('btn-' + tabId);
+            if (targetBtn) targetBtn.className = 'py-2 active-tab transition flex items-center gap-1.5 whitespace-nowrap';
+
+            if (tabId === 'tab-dashboard') updateCharts();
+
+            // Sync Mobile Bottom Navigation Bar state
+            const bnavMap = {
+                'tab-dashboard': 'bnav-tab-dashboard',
+                'tab-strategy': 'bnav-tab-strategy',
+                'tab-tasks': 'bnav-tab-tasks',
+                'tab-debts': 'bnav-tab-debts',
+                'tab-crm': 'bnav-tab-crm',
+                'tab-basket': 'bnav-tab-basket'
+            };
+            Object.keys(bnavMap).forEach(k => {
+                const bbtn = document.getElementById(bnavMap[k]);
+                if (bbtn) {
+                    if (k === tabId) {
+                        bbtn.className = 'flex flex-col items-center gap-0.5 text-orange-500 py-1 px-1.5 transition font-black scale-105';
+                    } else {
+                        bbtn.className = 'flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-200 py-1 px-1.5 transition font-normal';
+                    }
+                }
+            });
+        }
+
+        // ==========================================
+        // CONFIG & DYNAMIC NUMBER SYNC
+        // ==========================================
+        function renderConfigValues() {
+            const total = (appConfig.base + appConfig.expansion);
+            document.getElementById('kpi-total-monthly').innerText = total.toLocaleString() + ' ج.م';
+            document.getElementById('kpi-asm-share').innerText = appConfig.asm.toLocaleString() + ' ج.م';
+            document.getElementById('kpi-rep-target').innerText = appConfig.rep1.toLocaleString() + ' ج.م';
+            document.getElementById('kpi-annual-target').innerText = appConfig.annual.toLocaleString() + ' ج.م';
+
+            document.getElementById('badge-asm').innerText = (appConfig.asm / 1000000).toFixed(1) + 'M (' + ((appConfig.asm / total) * 100).toFixed(1) + '%)';
+            document.getElementById('badge-rep1').innerText = (appConfig.rep1 / 1000).toFixed(0) + 'K (' + ((appConfig.rep1 / total) * 100).toFixed(1) + '%)';
+            document.getElementById('badge-rep2').innerText = (appConfig.rep2 / 1000).toFixed(0) + 'K (' + ((appConfig.rep2 / total) * 100).toFixed(1) + '%)';
+            document.getElementById('badge-annual').innerText = (appConfig.annual / 1000000).toFixed(1) + ' مليون ج.م سنوياً';
+        }
+
+        function openConfigModal() {
+            document.getElementById('cfg-base').value = appConfig.base;
+            document.getElementById('cfg-expansion').value = appConfig.expansion;
+            document.getElementById('cfg-asm').value = appConfig.asm;
+            document.getElementById('cfg-rep1').value = appConfig.rep1;
+            document.getElementById('cfg-rep2').value = appConfig.rep2;
+            document.getElementById('cfg-annual').value = appConfig.annual;
+            document.getElementById('modal-config').classList.remove('hidden');
+        }
+
+        function closeConfigModal() {
+            document.getElementById('modal-config').classList.add('hidden');
+        }
+
+        function saveConfig() {
+            appConfig.base = parseFloat(document.getElementById('cfg-base').value) || DEFAULT_CONFIG.base;
+            appConfig.expansion = parseFloat(document.getElementById('cfg-expansion').value) || DEFAULT_CONFIG.expansion;
+            appConfig.asm = parseFloat(document.getElementById('cfg-asm').value) || DEFAULT_CONFIG.asm;
+            appConfig.rep1 = parseFloat(document.getElementById('cfg-rep1').value) || DEFAULT_CONFIG.rep1;
+            appConfig.rep2 = parseFloat(document.getElementById('cfg-rep2').value) || DEFAULT_CONFIG.rep2;
+            appConfig.annual = parseFloat(document.getElementById('cfg-annual').value) || DEFAULT_CONFIG.annual;
+
+            localStorage.setItem('2b_master_config', JSON.stringify(appConfig));
+            renderConfigValues();
+            updateCharts();
+            closeConfigModal();
+            alert('تم حفظ وتحديث الأرقام بنجاح في جميع لوحات التحكم والرسوم البيانية!');
+        }
+
+        function resetConfigToDefault() {
+            if (confirm('هل أنت متأكد من استعادة الأرقام الافتراضية؟')) {
+                appConfig = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+                localStorage.setItem('2b_master_config', JSON.stringify(appConfig));
+                renderConfigValues();
+                updateCharts();
+                closeConfigModal();
+            }
+        }
+
+        // ==========================================
+        // CHARTS LOGIC
+        // ==========================================
+        let chartQuota, chartRamp, chartSeason;
+
+        function initCharts() {
+            const ctx1 = document.getElementById('dashQuotaChart').getContext('2d');
+            chartQuota = new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['كبار الموزعين والجملة (ASM)', 'مندوب 1 (Zone 1)', 'مندوب 2 (Zone 2)'],
+                    datasets: [{
+                        data: [appConfig.asm, appConfig.rep1, appConfig.rep2],
+                        backgroundColor: ['#ea580c', '#0284c7', '#059669'],
+                        borderColor: '#020617',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: 'Cairo', size: 11 } } },
+                        tooltip: { callbacks: { label: (c) => c.label + ': ' + c.raw.toLocaleString() + ' ج.م' } }
+                    },
+                    cutout: '65%'
+                }
+            });
+
+            const ctx2 = document.getElementById('dashRampChart').getContext('2d');
+            chartRamp = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['الشهر 1 (تأسيس)', 'الشهر 2 (توسع)', 'الشهر 3 (استقرار)'],
+                    datasets: [
+                        { label: 'كبار الموزعين (ASM)', data: [2000000, 2300000, appConfig.asm], backgroundColor: '#ea580c', borderRadius: 6 },
+                        { label: 'مندوب 1 (Zone 1)', data: [350000, 450000, appConfig.rep1], backgroundColor: '#0284c7', borderRadius: 6 },
+                        { label: 'مندوب 2 (Zone 2)', data: [350000, 450000, appConfig.rep2], backgroundColor: '#059669', borderRadius: 6 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, ticks: { color: '#94a3b8', font: { family: 'Cairo' } }, grid: { display: false } },
+                        y: { stacked: true, ticks: { color: '#94a3b8', font: { family: 'Cairo' }, callback: (v) => (v/1000000) + 'M' }, grid: { color: '#1e293b' } }
+                    },
+                    plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: 'Cairo', size: 10 } } } }
+                }
+            });
+
+            const ctx3 = document.getElementById('dashSeasonChart').getContext('2d');
+            chartSeason = new Chart(ctx3, {
+                type: 'bar',
+                data: {
+                    labels: ['Q1 (يناير - مارس: تأسيس)', 'Q2 (أبريل - يونيو: الأعياد والصيف)', 'Q3 (يوليو - سبتمبر: موسم الجامعات الأكبر)', 'Q4 (أكتوبر - ديسمبر: عروض نهاية العام)'],
+                    datasets: [{
+                        label: 'المستهدف الفصلي (ج.م)',
+                        data: [7500000, 9000000, 11000000, 9300000],
+                        backgroundColor: ['#64748b', '#0284c7', '#ea580c', '#8b5cf6'],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { color: '#94a3b8', font: { family: 'Cairo', size: 11 } }, grid: { display: false } },
+                        y: { ticks: { color: '#94a3b8', font: { family: 'Cairo' }, callback: (v) => (v/1000000) + 'M' }, grid: { color: '#1e293b' } }
+                    },
+                    plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => c.raw.toLocaleString() + ' ج.م' } } }
+                }
+            });
+        }
+
+        function updateCharts() {
+            if (chartQuota) {
+                chartQuota.data.datasets[0].data = [appConfig.asm, appConfig.rep1, appConfig.rep2];
+                chartQuota.update();
+            }
+            if (chartRamp) {
+                chartRamp.data.datasets[0].data[2] = appConfig.asm;
+                chartRamp.data.datasets[1].data[2] = appConfig.rep1;
+                chartRamp.data.datasets[2].data[2] = appConfig.rep2;
+                chartRamp.update();
+            }
+        }
+
+        // ==========================================
+        // SLIDES VIEWER LOGIC (12 SLIDES)
+        // ==========================================
+        function renderSlide(idx) {
+            const slide = SLIDES[idx];
+            document.getElementById('slide-title').innerText = slide.title;
+            document.getElementById('slide-indicator').innerText = `الشريحة ${idx + 1} من ${SLIDES.length}`;
+
+            const body = document.getElementById('slide-body');
+            body.innerHTML = '';
+
+            if (slide.type === 'cover') {
+                body.innerHTML = `
+                    <div class="space-y-4 py-8">
+                        <h3 class="text-2xl sm:text-3xl font-black text-orange-400">${slide.subtitle}</h3>
+                        <p class="text-sm text-sky-400 font-bold">من 2.2M إلى 3.7M شهرياً (36.8 مليون ج.م سنوياً لعام 2027)</p>
+                        <div class="p-4 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-300 max-w-xl">
+                            <strong>إعداد:</strong> مدير المنطقة البيعية (Area Sales Manager)<br>
+                            وثيقة تشغيلية معتمدة وموجهة لقيادة فريق مبيعات الجيزة الكبرى.
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'grid') {
+                let html = '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-' + Math.min(slide.items.length, 4) + ' gap-4">';
+                slide.items.forEach(it => {
+                    const colorClasses = it.color === 'orange' ? 'text-orange-400 border-orange-500/30' :
+                                         it.color === 'green' ? 'text-emerald-400 border-emerald-500/30' :
+                                         it.color === 'blue' ? 'text-sky-400 border-sky-500/30' : 'text-purple-400 border-purple-500/30';
+                    html += `
+                        <div class="bg-slate-900/90 border ${colorClasses} rounded-2xl p-4 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-lg font-black ${colorClasses}">${it.title}</h4>
+                                <p class="text-xs text-slate-300 mt-2 leading-relaxed">${it.desc}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                body.innerHTML = html;
+            } else if (slide.type === 'split') {
+                body.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-slate-900 border border-orange-500/30 p-5 rounded-2xl">
+                            <h4 class="text-base font-bold text-orange-400 mb-2">${slide.left.title}</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">${slide.left.desc}</p>
+                        </div>
+                        <div class="bg-slate-900 border border-sky-500/30 p-5 rounded-2xl">
+                            <h4 class="text-base font-bold text-sky-400 mb-2">${slide.right.title}</h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">${slide.right.desc}</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            document.querySelectorAll('.thumb-btn').forEach((btn, i) => {
+                btn.className = (i === idx) ? 'thumb-btn py-1.5 px-2 bg-orange-600 text-white font-bold rounded-lg text-[10px] text-center' :
+                                              'thumb-btn py-1.5 px-2 bg-slate-800 text-slate-400 hover:text-white rounded-lg text-[10px] text-center';
+            });
+        }
+
+        function renderSlideThumbnails() {
+            const container = document.getElementById('slide-thumbs');
+            container.innerHTML = '';
+            SLIDES.forEach((_, i) => {
+                const b = document.createElement('button');
+                b.innerText = (i + 1);
+                b.onclick = () => { currentSlideIdx = i; renderSlide(i); };
+                container.appendChild(b);
+            });
+        }
+
+        function nextSlide() {
+            if (currentSlideIdx < SLIDES.length - 1) {
+                currentSlideIdx++;
+                renderSlide(currentSlideIdx);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIdx > 0) {
+                currentSlideIdx--;
+                renderSlide(currentSlideIdx);
+            }
+        }
+
+        window.addEventListener('keydown', (e) => {
+            const slidesTab = document.getElementById('tab-slides');
+            if (slidesTab && !slidesTab.classList.contains('hidden')) {
+                if (e.key === 'ArrowLeft') nextSlide();
+                if (e.key === 'ArrowRight') prevSlide();
+            }
+        });
+
+        // ==========================================
+        // TASKS MANAGER LOGIC
+        // ==========================================
+        function renderTasks() {
+            const list = document.getElementById('tasks-list');
+            list.innerHTML = '';
+
+            const filtered = appTasks.filter(t => {
+                if (currentTaskFilter === 'all') return true;
+                return t.assignee === currentTaskFilter;
+            });
+
+            if (filtered.length === 0) {
+                list.innerHTML = '<p class="text-center text-xs text-slate-500 py-8">لا توجد مهام مسجلة لهذا المسؤول حالياً.</p>';
+                return;
+            }
+
+            filtered.forEach(task => {
+                const assigneeName = task.assignee === 'asm' ? 'الاريا مانجر (ASM)' :
+                                     task.assignee === 'rep1' ? 'مندوب 1 (Zone 1 - شمال الجيزة)' : 'مندوب 2 (Zone 2 - جنوب الجيزة)';
+                const assigneeColor = task.assignee === 'asm' ? 'bg-orange-500/20 text-orange-400 border-orange-500/30' :
+                                      task.assignee === 'rep1' ? 'bg-sky-500/20 text-sky-400 border-sky-500/30' : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30';
+                
+                const card = document.createElement('div');
+                card.className = 'bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 transition hover:border-slate-700';
+                
+                card.innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" ${task.done ? 'checked' : ''} onchange="toggleTaskDone(${task.id})" class="mt-1 w-4 h-4 rounded text-orange-600 focus:ring-orange-500 bg-slate-900 border-slate-700">
+                        <div>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="text-[10px] px-2 py-0.5 rounded-full font-bold border ${assigneeColor}">${assigneeName}</span>
+                                <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded font-bold">${task.day}</span>
+                                ${task.priority === 'عاجلة' ? '<span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">عاجلة</span>' : ''}
+                            </div>
+                            <h4 class="text-xs sm:text-sm font-bold text-white mt-1.5 ${task.done ? 'task-done' : ''}">${task.title}</h4>
+                            <p class="text-[11px] text-slate-400 mt-0.5 flex items-center gap-1">
+                                <span>📍 المنطقة:</span> <strong class="text-slate-300">${task.location}</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 self-end sm:self-center">
+                        <button onclick="deleteTask(${task.id})" class="p-2 text-slate-500 hover:text-red-400 rounded-lg hover:bg-slate-900 transition" title="حذف المهمة">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        function filterTasks(f) {
+            currentTaskFilter = f;
+            const buttons = ['all', 'asm', 'rep1', 'rep2'];
+            buttons.forEach(b => {
+                const btn = document.getElementById('filter-' + b);
+                if (b === f) {
+                    btn.className = 'px-4 py-2 rounded-xl bg-orange-600 text-white font-bold transition';
+                } else {
+                    btn.className = 'px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition';
+                }
+            });
+            renderTasks();
+        }
+
+        function toggleTaskDone(id) {
+            const t = appTasks.find(item => item.id === id);
+            if (t) {
+                t.done = !t.done;
+                localStorage.setItem('2b_master_tasks', JSON.stringify(appTasks));
+                renderTasks();
+            }
+        }
+
+        function deleteTask(id) {
+            if (confirm('هل تريد حذف هذه المهمة؟')) {
+                appTasks = appTasks.filter(item => item.id !== id);
+                localStorage.setItem('2b_master_tasks', JSON.stringify(appTasks));
+                renderTasks();
+            }
+        }
+
+        function openAddTaskModal() {
+            document.getElementById('task-title').value = '';
+            document.getElementById('task-location').value = '';
+            document.getElementById('modal-task').classList.remove('hidden');
+        }
+
+        function closeAddTaskModal() {
+            document.getElementById('modal-task').classList.add('hidden');
+        }
+
+        function saveTask() {
+            const title = document.getElementById('task-title').value.trim();
+            const location = document.getElementById('task-location').value.trim() || 'الجيزة';
+            const assignee = document.getElementById('task-assignee').value;
+            const day = document.getElementById('task-day').value;
+            const priority = document.getElementById('task-priority').value;
+
+            if (!title) {
+                alert('يرجى كتابة عنوان المهمة');
+                return;
+            }
+
+            const newTask = {
+                id: Date.now(),
+                assignee,
+                title,
+                location,
+                day,
+                priority,
+                done: false
+            };
+
+            appTasks.unshift(newTask);
+            localStorage.setItem('2b_master_tasks', JSON.stringify(appTasks));
+            closeAddTaskModal();
+            renderTasks();
+        }
+
+        function shareTasksViaWhatsApp() {
+            let assigneeTitle = currentTaskFilter === 'asm' ? 'مهام الاريا مانجر' :
+                                currentTaskFilter === 'rep1' ? 'مهام مندوب 1 (Zone 1)' :
+                                currentTaskFilter === 'rep2' ? 'مهام مندوب 2 (Zone 2)' : 'مهام فريق عمل الجيزة';
+            
+            const filtered = appTasks.filter(t => currentTaskFilter === 'all' || t.assignee === currentTaskFilter);
+            
+            let msg = `📋 جدول مهام المبيعات الميدانية - 2B الجيزة (${assigneeTitle})\n-------------------------------------\n`;
+            filtered.forEach((t, i) => {
+                const status = t.done ? '✅ [تمت]' : '⏳ [مطلوبة]';
+                msg += `${i + 1}. ${t.title} (${t.day} - ${t.location}) ${status}\n`;
+            });
+            msg += `\nبالتوفيق يا رجالة، تركيز على الكاش والاستبدال الفوري!`;
+
+            navigator.clipboard.writeText(msg).then(() => {
+                alert('تم نسخ قائمة المهام بنجاح! يمكنك لصقها الآن في محادثة الواتساب مع المندوبين.');
+            });
+        }
+
+        // ==========================================
+        // DEBTS & STOP-SUPPLY RADAR LOGIC (ADDITION 1)
+        // ==========================================
+        function renderDebts() {
+            const tbody = document.getElementById('debts-tbody');
+            tbody.innerHTML = '';
+
+            let safeSum = 0, warnSum = 0, overdueSum = 0;
+
+            appDebts.forEach(d => {
+                let badge = '', statusText = '', alertColor = '';
+                if (d.days <= 7) {
+                    safeSum += d.amount;
+                    badge = '<span class="px-2 py-0.5 rounded font-bold bg-emerald-500/20 text-emerald-400">سداد منتظم</span>';
+                    statusText = 'آمن (في المهلة)';
+                    alertColor = 'text-emerald-400';
+                } else if (d.days <= 14) {
+                    warnSum += d.amount;
+                    badge = '<span class="px-2 py-0.5 rounded font-bold bg-amber-500/20 text-amber-400">اقتراب استحقاق</span>';
+                    statusText = 'تنبيه المندوب';
+                    alertColor = 'text-amber-400';
+                } else {
+                    overdueSum += d.amount;
+                    badge = '<span class="px-2 py-0.5 rounded font-bold bg-red-500/20 text-red-400 animate-pulse">STOP-SUPPLY</span>';
+                    statusText = 'تجميد التوريد فورياً';
+                    alertColor = 'text-red-400';
+                }
+
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-900/50 transition';
+                tr.innerHTML = `
+                    <td class="p-3 font-bold text-white">${d.shop}</td>
+                    <td class="p-3 text-slate-400">${d.location} <span class="text-[10px] text-slate-500">(${d.rep})</span></td>
+                    <td class="p-3 text-center font-bold text-orange-400">${d.amount.toLocaleString()} ج.م</td>
+                    <td class="p-3 text-center font-bold ${alertColor}">${d.days} أيام</td>
+                    <td class="p-3 text-center">${badge}</td>
+                    <td class="p-3 text-center flex items-center justify-center gap-1.5">
+                        <button onclick="sendDebtReminder('${d.shop}', ${d.amount}, ${d.days})" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-sky-400 rounded-lg text-[10px] font-bold" title="توليد رسالة تذكير لواتساب">تذكير واتساب</button>
+                        <button onclick="deleteDebt(${d.id})" class="px-2 py-1 bg-slate-800 hover:bg-emerald-600 text-slate-400 hover:text-white rounded-lg text-[10px]" title="تم التحصيل والسداد">✓ سدد</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('debt-safe-total').innerText = safeSum.toLocaleString() + ' ج.م';
+            document.getElementById('debt-warning-total').innerText = warnSum.toLocaleString() + ' ج.م';
+            document.getElementById('debt-overdue-total').innerText = overdueSum.toLocaleString() + ' ج.م';
+        }
+
+        function openAddDebtModal() {
+            document.getElementById('debt-shop').value = '';
+            document.getElementById('debt-location').value = '';
+            document.getElementById('debt-amount').value = '';
+            document.getElementById('debt-days').value = 5;
+            document.getElementById('modal-debt').classList.remove('hidden');
+        }
+
+        function closeAddDebtModal() {
+            document.getElementById('modal-debt').classList.add('hidden');
+        }
+
+        function saveDebt() {
+            const shop = document.getElementById('debt-shop').value.trim();
+            const location = document.getElementById('debt-location').value.trim() || 'الجيزة';
+            const rep = document.getElementById('debt-rep').value;
+            const amount = parseFloat(document.getElementById('debt-amount').value) || 0;
+            const days = parseInt(document.getElementById('debt-days').value) || 0;
+
+            if (!shop || amount <= 0) {
+                alert('يرجى إدخال اسم المحل وقيمة الفاتورة');
+                return;
+            }
+
+            appDebts.unshift({ id: Date.now(), shop, location, rep, amount, days });
+            localStorage.setItem('2b_master_debts', JSON.stringify(appDebts));
+            closeAddDebtModal();
+            renderDebts();
+        }
+
+        function deleteDebt(id) {
+            appDebts = appDebts.filter(d => d.id !== id);
+            localStorage.setItem('2b_master_debts', JSON.stringify(appDebts));
+            renderDebts();
+        }
+
+        function sendDebtReminder(shop, amount, days) {
+            const msg = `تحية طيبة من شركة 2B لإكسسوارات التكنولوجيا 🤝\nعزيزنا عميلنا الكريم (${shop})،\nنود تذكير سيادتكم بموعد استحقاق الفاتورة الآجلة بقيمة ${amount.toLocaleString()} ج.م (تاريخ الاستحقاق منقضٍ منذ ${days} أيام).\nنرجو التكرم بالتنسيق مع المندوب لسداد القيمة لاستمرار التوريدات الدورية دون انقطاع وتفعيل حسابكم للطلبيات الجديدة.\nشاكرين حسن تعاونكم الدائم معنا!`;
+            navigator.clipboard.writeText(msg).then(() => {
+                alert('تم نسخ رسالة تذكير التحصيل المعتمدة لواتساب!');
+            });
+        }
+
+        // ==========================================
+        // GIZA CUSTOMER MINI-CRM LOGIC (ADDITION 2)
+        // ==========================================
+        function renderCustomers() {
+            const grid = document.getElementById('crm-grid');
+            grid.innerHTML = '';
+
+            const filtered = appCustomers.filter(c => currentCrmFilter === 'all' || c.zone === currentCrmFilter);
+
+            filtered.forEach(c => {
+                const classBadge = c.class === 'Class A' ? 'bg-orange-500/20 text-orange-400 border-orange-500/30' :
+                                   c.class === 'Class B' ? 'bg-sky-500/20 text-sky-400 border-sky-500/30' : 'bg-slate-700 text-slate-300';
+                
+                const card = document.createElement('div');
+                card.className = 'bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between space-y-3 hover:border-slate-700 transition';
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold border ${classBadge}">${c.class}</span>
+                            <span class="text-[11px] text-slate-400 font-bold">${c.zone}</span>
+                        </div>
+                        <h4 class="text-sm font-bold text-white mt-2">${c.name}</h4>
+                        <p class="text-xs text-slate-400 mt-1">📍 ${c.street}</p>
+                        <p class="text-[11px] text-slate-300 mt-1">المسؤول: <strong>${c.owner}</strong></p>
+                        <p class="text-[11px] text-orange-400 font-bold mt-1">السقف الائتماني: ${c.limit > 0 ? c.limit.toLocaleString() + ' ج.م' : 'كاش فوري 100%'}</p>
+                    </div>
+                    <div class="border-t border-slate-800/80 pt-2 flex items-center justify-between">
+                        <a href="tel:${c.phone}" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-sky-400 rounded-xl text-xs font-bold flex items-center gap-1">
+                            📞 اتصال
+                        </a>
+                        <a href="https://wa.me/20${c.phone.replace(/^0+/, '')}" target="_blank" class="px-3 py-1.5 bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-400 border border-emerald-500/30 rounded-xl text-xs font-bold flex items-center gap-1">
+                            💬 واتساب
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCRM(z) {
+            currentCrmFilter = z;
+            document.getElementById('crm-filter-all').className = (z === 'all') ? 'px-4 py-2 rounded-xl bg-orange-600 text-white font-bold transition' : 'px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition';
+            document.getElementById('crm-filter-z1').className = (z === 'Zone 1') ? 'px-4 py-2 rounded-xl bg-orange-600 text-white font-bold transition' : 'px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition';
+            document.getElementById('crm-filter-z2').className = (z === 'Zone 2') ? 'px-4 py-2 rounded-xl bg-orange-600 text-white font-bold transition' : 'px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition';
+            renderCustomers();
+        }
+
+        function openAddCustomerModal() {
+            document.getElementById('crm-name').value = '';
+            document.getElementById('crm-street').value = '';
+            document.getElementById('crm-owner').value = '';
+            document.getElementById('crm-phone').value = '';
+            document.getElementById('crm-limit').value = 15000;
+            document.getElementById('modal-customer').classList.remove('hidden');
+        }
+
+        function closeAddCustomerModal() {
+            document.getElementById('modal-customer').classList.add('hidden');
+        }
+
+        function saveCustomer() {
+            const name = document.getElementById('crm-name').value.trim();
+            const street = document.getElementById('crm-street').value.trim() || 'الجيزة';
+            const zone = document.getElementById('crm-zone').value;
+            const cClass = document.getElementById('crm-class').value;
+            const owner = document.getElementById('crm-owner').value.trim() || 'المدير';
+            const phone = document.getElementById('crm-phone').value.trim() || '01000000000';
+            const limit = parseFloat(document.getElementById('crm-limit').value) || 0;
+
+            if (!name) {
+                alert('يرجى إدخال اسم العميل');
+                return;
+            }
+
+            appCustomers.unshift({ id: Date.now(), name, zone, street, owner, phone, class: cClass, limit });
+            localStorage.setItem('2b_master_customers', JSON.stringify(appCustomers));
+            closeAddCustomerModal();
+            renderCustomers();
+        }
+
+        // ==========================================
+        // ORDER BASKET BUILDER LOGIC (ADDITION 3)
+        // ==========================================
+        function calculateBasket() {
+            const chargers = (parseInt(document.getElementById('qty-chargers').value) || 0) * 160;
+            const cables = (parseInt(document.getElementById('qty-cables').value) || 0) * 55;
+            const powerbanks = (parseInt(document.getElementById('qty-powerbanks').value) || 0) * 450;
+            const audio = (parseInt(document.getElementById('qty-audio').value) || 0) * 220;
+            const laptop = (parseInt(document.getElementById('qty-laptop').value) || 0) * 420;
+
+            const gross = chargers + cables + powerbanks + audio + laptop;
+            const discount = gross * 0.03; // 3% cash promo
+            const net = gross - discount;
+
+            document.getElementById('basket-gross').innerText = Math.round(gross).toLocaleString() + ' ج.م';
+            document.getElementById('basket-discount').innerText = '- ' + Math.round(discount).toLocaleString() + ' ج.م';
+            document.getElementById('basket-net').innerText = Math.round(net).toLocaleString() + ' ج.م';
+        }
+
+        function sendOrderToWarehouse() {
+            const qChargers = document.getElementById('qty-chargers').value;
+            const qCables = document.getElementById('qty-cables').value;
+            const qPower = document.getElementById('qty-powerbanks').value;
+            const qAudio = document.getElementById('qty-audio').value;
+            const qLaptop = document.getElementById('qty-laptop').value;
+            const net = document.getElementById('basket-net').innerText;
+
+            const orderText = `📦 أمر توريد جديد لمخزن 2B - قطاع الجيزة\n----------------------------------\n• شواحن سريعة GaN/PD: [${qChargers}] قطعة\n• كابلات PD معتمدة: [${qCables}] قطعة\n• بنوك طاقة Power Banks: [${qPower}] قطعة\n• سماعات TWS وسلكية: [${qAudio}] قطعة\n• حقائب واكسسوارات لابتوب: [${qLaptop}] قطعة\n• إجمالي صافي الفاتورة كاش: ${net}\n• يرجى تجهيز استاند كاونتر مدمج مجاني مع الشحنة.\n\nتأكيد الحجز والتجهيز فوراً للتسليم.`;
+
+            navigator.clipboard.writeText(orderText).then(() => {
+                alert('تم نسخ أمر التوريد بنجاح! يمكنك لصقه الآن في محادثة المخزن والتجهيز على واتساب.');
+            });
+        }
+
+        // ==========================================
+        // BOARD-READY EXECUTIVE REPORT (ADDITION 4)
+        // ==========================================
+        function openBoardReportModal() {
+            const total = (appConfig.base + appConfig.expansion);
+            const totalM = (total / 1000000).toFixed(2);
+            const asmShare = (appConfig.asm / 1000000).toFixed(2);
+            const annualM = (appConfig.annual / 1000000).toFixed(1);
+
+            const report = `السادة / الإدارة العليا ومجلس إدارة شركة توبي للتجارة والتوزيع (2B) المحترمين،
+الموضوع: التقرير الاستراتيجي الشامل ومستهدفات قطاع الجيزة الكبرى لعام 2027
+إعداد: مدير المنطقة البيعية (Area Sales Manager) - قطاع الجيزة
+-------------------------------------------------------------------------
+1. المؤشرات المالية المعتمدة:
+• المستهدف الشهري الإجمالي: ${total.toLocaleString()} ج.م (${totalM}M شهرياً).
+• الأساس التاريخي المستقر: ${appConfig.base.toLocaleString()} ج.م | التوسع التراكمي: ${appConfig.expansion.toLocaleString()} ج.م.
+• المستهدف السنوي المخطط لعام 2027: ${appConfig.annual.toLocaleString()} ج.م (${annualM}M سنوياً بنمو +28%).
+• معادلة السيولة والكاش: إلزامية تحصيل كاش فوري بنسبة لا تقل عن 50% شهرياً ومعدل تحصيل DSO ≤ 20 يوماً.
+
+2. الهيكلة التشغيلية وتوزيع الحصص:
+• كبار موزعي الجملة والصفقات B2B (بإشراف ASM): ${appConfig.asm.toLocaleString()} ج.م (${((appConfig.asm/total)*100).toFixed(1)}%).
+• مندوب 1 (Zone 1 - شمال الجيزة: المهندسين والدقي ومول التحرير وإمبابة): ${appConfig.rep1.toLocaleString()} ج.م.
+• مندوب 2 (Zone 2 - جنوب الجيزة: فيصل والهرم و 6 أكتوبر وزايد): ${appConfig.rep2.toLocaleString()} ج.م.
+
+3. خطة الـ 90 يوماً المتدرجة (The 30-60-90 Day Ramp-Up):
+• الشهر الأول: 2,700,000 ج.م (تأسيس ومسح خطوط السير وتأهيل المندوبين وتوريد كاش).
+• الشهر الثاني: 3,200,000 ج.م (توسع وتركيب وحدات الكاونتر وتكرار سحب المحلات).
+• الشهر الثالث: 3,700,000 ج.م (اكتمال الطاقة القصوى واستقلالية المندوبين بنسبة 100%).
+
+4. الأسلحة الميدانية المفعلة بالمنطقة:
+• بروتوكول الاستبدال الفوري RMA بشنطة استبدال عائمة (2,500 ج.م) لكسر تردد التجار.
+• نادي ولاء تاجر التجزئة (2B Loyalty Club) بحوافز ربع سنوية (فضية/ذهبية/بلاتينية).
+• هيكل عمولات المندوبين التنافسي (بونص 50 ج.م للمحل الجديد + 0.5% حافز الكاش الفوري).
+• استراتيجية كاونتر الدفع الذهبي واقتناص الشراء اللحظي (Impulse Buying).
+• تفعيل صفقات حزم اللابتوب بمحيط جامعة القاهرة وجامعات 6 أكتوبر.
+
+5. حوكمة التحصيل والمخاطر:
+• صفر ديون معدومة (0.0% Bad Debts) وتطبيق صارم لقاعدة الوقف التلقائي (Stop-Supply Rule) بعد 14 يوماً.
+
+وتفضلوا بقبول فائق الاحترام والتقدير،،
+مدير المنطقة البيعية — قطاع الجيزة الكبرى | شركة توبي (2B)`;
+
+            document.getElementById('board-report-text').innerText = report;
+            document.getElementById('modal-board').classList.remove('hidden');
+        }
+
+        function closeBoardReportModal() {
+            document.getElementById('modal-board').classList.add('hidden');
+        }
+
+        function copyBoardReport() {
+            const text = document.getElementById('board-report-text').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('تم نسخ التقرير التنفيذي الرسمي بالكامل بنجاح!');
+            });
+        }
+
+        // ==========================================
+        // CALCULATOR & DAILY CALL SHEET
+        // ==========================================
+        function calculateCommission() {
+            const sales = parseFloat(document.getElementById('calc-sales').value) || 0;
+            const cashPct = parseFloat(document.getElementById('calc-cash-percent').value) || 0;
+            const newAccounts = parseInt(document.getElementById('calc-new-accounts').value) || 0;
+
+            const bounty = newAccounts * 50;
+            document.getElementById('res-bounty').innerText = bounty.toLocaleString() + ' ج.م';
+
+            let kicker = 0;
+            if (cashPct > 50) {
+                const excessCash = sales * ((cashPct - 50) / 100);
+                kicker = excessCash * 0.005;
+            }
+            document.getElementById('res-kicker').innerText = Math.round(kicker).toLocaleString() + ' ج.م';
+
+            const targetAchievement = sales / 600000;
+            let tierBonus = 0;
+            if (targetAchievement >= 1.0) {
+                tierBonus = 4500 * targetAchievement;
+            } else if (targetAchievement >= 0.85) {
+                tierBonus = 3000 * targetAchievement;
+            }
+            document.getElementById('res-tier').innerText = Math.round(tierBonus).toLocaleString() + ' ج.م';
+
+            const total = bounty + kicker + tierBonus;
+            document.getElementById('res-total').innerText = Math.round(total).toLocaleString() + ' ج.م';
+        }
+
+        function copyDailySheet() {
+            const name = document.getElementById('sheet-name').value;
+            const visits = document.getElementById('sheet-visits').value;
+            const strike = document.getElementById('sheet-strike').value;
+            const sales = document.getElementById('sheet-sales').value;
+            const cash = document.getElementById('sheet-cash').value;
+            const newAcc = document.getElementById('sheet-new').value;
+
+            const text = `📊 تقرير المبيعات اليومي - 2B الجيزة
+المسؤول: ${name}
+-----------------------------
+• الزيارات المنفذة: ${visits} زيارات
+• الفواتير الناجحة: ${strike} فواتير
+• إجمالي المبيعات: ${Number(sales).toLocaleString()} ج.م
+• المتحصل كاش فوري: ${Number(cash).toLocaleString()} ج.م
+• عملاء جدد اليوم: ${newAcc}
+• التالف المستبدل (RMA): تم الفحص والاستبدال الفوري
+• توريد النقدية: تم الإيداع بنجاح`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const status = document.getElementById('copy-status');
+                status.classList.remove('hidden');
+                setTimeout(() => status.classList.add('hidden'), 3000);
+            });
+        }
+    </script>
+
+    <!-- Mobile Fixed Bottom Navigation Bar -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800 px-1 py-1.5 flex justify-around items-center no-print shadow-2xl">
+        <button onclick="switchTab('tab-dashboard')" id="bnav-tab-dashboard" class="flex flex-col items-center gap-0.5 text-orange-500 py-1 px-1.5 transition">
+            <span class="text-base">📊</span>
+            <span class="text-[9px] font-bold">المؤشرات</span>
+        </button>
+        <button onclick="switchTab('tab-strategy')" id="bnav-tab-strategy" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-200 py-1 px-1.5 transition">
+            <span class="text-base">📑</span>
+            <span class="text-[9px] font-bold">الخطة</span>
+        </button>
+        <button onclick="switchTab('tab-tasks')" id="bnav-tab-tasks" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-200 py-1 px-1.5 transition">
+            <span class="text-base">✅</span>
+            <span class="text-[9px] font-bold">المهام</span>
+        </button>
+        <button onclick="switchTab('tab-debts')" id="bnav-tab-debts" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-200 py-1 px-1.5 transition">
+            <span class="text-base">🛡️</span>
+            <span class="text-[9px] font-bold">الرادار</span>
+        </button>
+        <button onclick="switchTab('tab-crm')" id="bnav-tab-crm" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-200 py-1 px-1.5 transition">
+            <span class="text-base">👥</span>
+            <span class="text-[9px] font-bold">العملاء</span>
+        </button>
+        <button onclick="switchTab('tab-basket')" id="bnav-tab-basket" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-200 py-1 px-1.5 transition">
+            <span class="text-base">🛒</span>
+            <span class="text-[9px] font-bold">الطلبيات</span>
+        </button>
+        <button onclick="openMobileMenuModal()" id="bnav-more" class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-slate-200 py-1 px-1.5 transition">
+            <span class="text-base">⚡</span>
+            <span class="text-[9px] font-bold">المزيد</span>
+        </button>
+    </nav>
+
+    <!-- Mobile Extra Menu Modal -->
+    <div id="modal-mobile-menu" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-t-3xl sm:rounded-3xl max-w-md w-full p-6 space-y-4 animate-slide-up">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">⚡</span>
+                    <h3 class="font-bold text-white text-base">الأدوات الإضافية والخدمات</h3>
+                </div>
+                <button onclick="closeMobileMenuModal()" class="text-slate-400 hover:text-white text-xl">✕</button>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-xs">
+                <button onclick="closeMobileMenuModal(); switchTab('tab-slides')" class="p-3 bg-slate-800/80 hover:bg-slate-700 rounded-xl text-right flex items-center gap-2 border border-slate-700/50">
+                    <span class="text-lg">🖥️</span>
+                    <div>
+                        <p class="font-bold text-white">العرض التقديمي</p>
+                        <p class="text-[10px] text-slate-400">12 شريحة تفاعلية</p>
+                    </div>
+                </button>
+                <button onclick="closeMobileMenuModal(); switchTab('tab-weapons')" class="p-3 bg-slate-800/80 hover:bg-slate-700 rounded-xl text-right flex items-center gap-2 border border-slate-700/50">
+                    <span class="text-lg">⚡</span>
+                    <div>
+                        <p class="font-bold text-white">الأسلحة الـ 7</p>
+                        <p class="text-[10px] text-slate-400">تكتيكات الميدان</p>
+                    </div>
+                </button>
+                <button onclick="closeMobileMenuModal(); switchTab('tab-calculator')" class="p-3 bg-slate-800/80 hover:bg-slate-700 rounded-xl text-right flex items-center gap-2 border border-slate-700/50">
+                    <span class="text-lg">🧮</span>
+                    <div>
+                        <p class="font-bold text-white">حاسبة الحوافز</p>
+                        <p class="text-[10px] text-slate-400">والتقرير اليومي</p>
+                    </div>
+                </button>
+                <button onclick="closeMobileMenuModal(); openBoardReportModal()" class="p-3 bg-slate-800/80 hover:bg-slate-700 rounded-xl text-right flex items-center gap-2 border border-slate-700/50">
+                    <span class="text-lg">🏛️</span>
+                    <div>
+                        <p class="font-bold text-purple-300">تقرير الإدارة</p>
+                        <p class="text-[10px] text-slate-400">نسخة مجلس الإدارة</p>
+                    </div>
+                </button>
+                <button onclick="closeMobileMenuModal(); openConfigModal()" class="p-3 bg-slate-800/80 hover:bg-slate-700 rounded-xl text-right flex items-center gap-2 border border-slate-700/50">
+                    <span class="text-lg">⚙️</span>
+                    <div>
+                        <p class="font-bold text-orange-400">تعديل الأرقام</p>
+                        <p class="text-[10px] text-slate-400">المستهدفات والتوزيع</p>
+                    </div>
+                </button>
+                <a href="2B_Sales_Giza_2027.apk" download="2B_Sales_Giza_2027.apk" class="p-3 bg-emerald-950/60 hover:bg-emerald-900 rounded-xl text-right flex items-center gap-2 border border-emerald-700/50">
+                    <span class="text-lg">🤖</span>
+                    <div>
+                        <p class="font-bold text-emerald-300">تحميل APK</p>
+                        <p class="text-[10px] text-slate-400">مباشر للأندرويد</p>
+                    </div>
+                </a>
+            </div>
+            <div class="pt-2">
+                <button onclick="closeMobileMenuModal(); triggerPWAInstall();" class="w-full py-2.5 bg-gradient-to-r from-orange-600 to-amber-600 text-white rounded-xl font-bold text-xs shadow-lg shadow-orange-600/30 flex items-center justify-center gap-2">
+                    <span>📱 تثبيت الأبلكيشن على شاشة الموبايل</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PWA Install Guide Modal -->
+    <div id="modal-install-guide" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">📱</span>
+                    <h3 class="font-bold text-white text-base">تثبيت تطبيق 2B مبيعات الجيزة</h3>
+                </div>
+                <button onclick="closeInstallGuideModal()" class="text-slate-400 hover:text-white text-xl">✕</button>
+            </div>
+            <div class="space-y-3 text-xs text-slate-300">
+                <div class="bg-slate-800/80 p-3 rounded-2xl border border-slate-700/60 space-y-1">
+                    <p class="font-bold text-orange-400 text-sm">🤖 هواتف الأندرويد (Google Chrome):</p>
+                    <p>1. اضغط على زر الخيارات (⋮) أعلى يمين المتصفح.</p>
+                    <p>2. اضغط على <strong class="text-white">"تثبيت التطبيق" (Install app)</strong> أو <strong class="text-white">"إضافة إلى الشاشة الرئيسية"</strong>.</p>
+                    <p>3. أو يمكنك تحميل ملف الـ APK المباشر وتثبيته مباشرة!</p>
+                </div>
+                <div class="bg-slate-800/80 p-3 rounded-2xl border border-slate-700/60 space-y-1">
+                    <p class="font-bold text-sky-400 text-sm">🍏 هواتف الآيفون (Safari):</p>
+                    <p>1. اضغط على زر المشاركة أسفل المتصفح (<span class="font-bold text-white">Share 📤</span>).</p>
+                    <p>2. مرر لأسفل واختر <strong class="text-white">"إضافة إلى الشاشة الرئيسية" (Add to Home Screen ➕)</strong>.</p>
+                    <p>3. اضغط "إضافة" (Add) وسيظهر التطبيق على شاشتك بأيقونة 2B الرسمية.</p>
+                </div>
+                <div class="bg-slate-800/80 p-3 rounded-2xl border border-slate-700/60 space-y-1">
+                    <p class="font-bold text-purple-400 text-sm">💻 أجهزة الكمبيوتر (Chrome / Edge):</p>
+                    <p>اضغط على أيقونة التثبيت (🖥️) الموجودة في شريط العنوان أعلى المتصفح، أو استخدم ملف <strong class="text-white">تشغيل_التطبيق.bat</strong> في الفولدر.</p>
+                </div>
+            </div>
+            <button onclick="closeInstallGuideModal()" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold text-xs border border-slate-700">
+                فهمت، إغلاق
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // PWA & APP INSTALLATION MANAGEMENT
+        // ==========================================
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const btn = document.getElementById('btn-pwa-install');
+            if (btn) btn.classList.remove('hidden');
+        });
+
+        function triggerPWAInstall() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        alert('🎉 تم بدء تثبيت تطبيق 2B مبيعات الجيزة على جهازك بنجاح!');
+                    }
+                    deferredPrompt = null;
+                });
+            } else {
+                openInstallGuideModal();
+            }
+        }
+
+        function openInstallGuideModal() {
+            document.getElementById('modal-install-guide').classList.remove('hidden');
+        }
+        function closeInstallGuideModal() {
+            document.getElementById('modal-install-guide').classList.add('hidden');
+        }
+
+        function openMobileMenuModal() {
+            document.getElementById('modal-mobile-menu').classList.remove('hidden');
+        }
+        function closeMobileMenuModal() {
+            document.getElementById('modal-mobile-menu').classList.add('hidden');
+        }
+
+        // Register Service Worker for 100% Offline capability
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then((reg) => {
+                    console.log('2B Sales OS Service Worker active:', reg.scope);
+                }).catch((err) => {
+                    console.warn('Service Worker registration note:', err);
+                });
+            });
+        }
+
+        // Online / Offline monitor
+        function updateNetworkStatus() {
+            const badge = document.getElementById('net-badge');
+            if (!badge) return;
+            if (navigator.onLine) {
+                badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span><span>أوفلاين جاهز</span>';
+                badge.className = 'hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+            } else {
+                badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-400"></span><span>وضع بدون نت (أوفلاين)</span>';
+                badge.className = 'hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30';
+            }
+        }
+        window.addEventListener('online', updateNetworkStatus);
+        window.addEventListener('offline', updateNetworkStatus);
+    </script>
+</body>
+
+</html>
